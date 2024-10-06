@@ -481,17 +481,15 @@ flowchart TD
 <pre class="mermaid mermaid-js">%%{init: {"flowchart": {"htmlLabels": true}} }%%
 stateDiagram
     direction LR
-    [*] --&gt; Pitch
+    Pitch
     Pitch --&gt; Sourcing
     Pitch --&gt; Writing
-    Pitch --&gt; Analysis
     Sourcing --&gt; Draft
     Writing --&gt; Draft
-    Analysis --&gt; Draft
     Draft --&gt; DE_Editing
     DE_Editing --&gt; ME_Editing
     ME_Editing --&gt; Webbing
-    Webbing --&gt; [*]
+    Webbing
     
     state DE_Editing {
         direction LR
@@ -519,7 +517,7 @@ stateDiagram
 <ul>
 <li>Most <span style="color:#00FF7F;">communication</span> will take place over Slack</li>
 <li>Most <span style="color:#00FF7F;">resources</span> are kept in Notion</li>
-<li>Please reach out to our Staff Director <a href="mailto:mallencu@stanford.edu">Mark Allen Cu</a> if you need access to these!</li>
+<li>Please reach out to <a href="mailto:mallencu@stanford.edu">mallencu@stanford.edu</a> if you need access to these!</li>
 </ul>
 </section></section>
 <section>
@@ -541,7 +539,7 @@ stateDiagram
 <section id="amount-of-data-over-time" class="slide level2">
 <h2>Amount of Data Over Time</h2>
 <p>The total amount of data created, captured, copied, and consumed globally is forecast to increase rapidly, reaching 64.2 zettabytes in 2020.</p>
-<div id="2e27a867" class="cell" data-execution_count="4">
+<div id="ff14d1a1" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./assets/data.csv'</span>)</span>
