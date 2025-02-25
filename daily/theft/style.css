@@ -1,0 +1,10 @@
+.image-border {
+    border: 2px solid black; /* Add a black border */
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 500px;
+}
