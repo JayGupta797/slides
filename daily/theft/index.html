@@ -387,6 +387,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="bike_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="bike_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="bike_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -466,7 +469,7 @@
 <h2>Bike Culture</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Stanford is the only university in the nation to be <span style="color:#00FF7F;">awarded</span> four consecutive Platinum Designations.</li>
+<li>Stanford is the only university in the nation to be <span style="color:#00FF7F;">awarded</span> four consecutive Platinum Designations by the League of American Bicyclists.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
@@ -475,19 +478,19 @@
 </ul>
 </div>
 <div class="footer">
-<p><a href="https://transportation.stanford.edu/getting-around-stanford/bike">Stanford Transporation</a></p>
+<p><a href="https://transportation.stanford.edu/news/pedaling-forward-2022-report-bikes-stanford">Stanford Transporation: Pedaling Foward</a></p>
 </div>
 </section>
 <section id="bike-thefts-1" class="slide level2">
 <h2>Bike Thefts</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>TSD published weekly <span style="color:#00FF7F;">Police Blotters</span> detailing a selection of incidents from the SUDPS bulliten</li>
+<li>SUDPS publishes an annual <span style="color:#00FF7F;">crime statistics report</span> in accordance with the Clery Act.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>SUDPS publishes an annual <span style="color:#00FF7F;">crime statistics report</span> in accordance with the Clery Act.</li>
+<li>TSD published weekly <span style="color:#00FF7F;">Police Blotters</span> detailing a selection of incidents from the SUDPS bulliten.</li>
 </ul>
 </div>
 <div class="footer">
@@ -509,12 +512,55 @@
 <h2>Police Blotter</h2>
 <iframe src="https://stanforddaily.com/2025/02/19/police-blotter-hit-and-run-non-criminal-hate-violence-and-intent-of-identity-fraud/"></iframe>
 <div class="footer">
-<p><a href="https://stanforddaily.com/category/news/crime-news/">https://stanforddaily.com/category/news/crime-news/</a></p>
+<p><a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
+</div>
+</section>
+<section id="think-pair-share" class="slide level2">
+<h2>Think, Pair, Share</h2>
+<p>With the person sitting next to you, discuss how you would approach collecting this information? You are encouraged to keep ideas <span style="color:#00FF7F;">high-level</span>.</p>
+<div class="footer">
+<p><a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
+</div>
+</section>
+<section id="strategy" class="slide level2">
+<h2>Strategy</h2>
+<p>The plan of attack is collect Police Blotters in 2023, process each of them (e.g., collect bike thefts, dates, etc), and merge.</p>
+<div class="mermaid-container" style="width: 100%; height: 100%">
+<div class="cell" data-reveal="true" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A[Collect Blotters]
+    A --&gt; B[Article 1]
+    A --&gt; C[Article 2]
+    A --&gt; D[Article 3]
+    A --&gt; E[Article 4]
+    A --&gt; F[Article 5]
+
+    B --&gt; B1[Process]
+    C --&gt; C1[Process]
+    D --&gt; D1[Process]
+    E --&gt; E1[Process]
+    F --&gt; F1[Process]
+
+    B1 --&gt; G[Dataset]
+    C1 --&gt; G
+    D1 --&gt; G
+    E1 --&gt; G
+    F1 --&gt; G
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="scraping-data" class="slide level2">
 <h2>Scraping Data</h2>
-<p>This is some pseudo-code outlining how one <em>might</em> scrape TSD Police Blotters for text content.</p>
+<p>This is some pseudo-code outlining how one <em>might</em> scrape TSD Police Blotters.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a href=""></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
 <span id="cb1-3"><a href=""></a></span>
@@ -560,7 +606,7 @@
 <span id="cb3-6"><a href=""></a>    address <span class="op">=</span> <span class="ss">f'California, Palo Alto, Stanford, </span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">'</span></span>
 <span id="cb3-7"><a href=""></a>    <span class="cf">try</span>:</span>
 <span id="cb3-8"><a href=""></a>        geocode <span class="op">=</span> gmaps.geocode(address)</span>
-<span id="cb3-9"><a href=""></a>        time.sleep(delay_between_calls)</span>
+<span id="cb3-9"><a href=""></a>        time.sleep(delay)</span>
 <span id="cb3-10"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Successfully processed </span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb3-11"><a href=""></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb3-12"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Error processing address '</span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -590,6 +636,13 @@
 <ul>
 <li>We need to source <span style="color:#00FF7F;">stakeholders</span> (e.g., bikers, SUDPS, Stanford Transportation, etc.) with interesting perspectives!</li>
 </ul>
+</div>
+</section>
+<section id="think-pair-share-1" class="slide level2">
+<h2>Think, Pair, Share</h2>
+<p>With the person sitting next to you, discuss how you would approach sourcing?</p>
+<div class="footer">
+<p><a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
 </div>
 </section></section>
 <section>

@@ -8,3 +8,17 @@ iframe {
     width: 100%;
     height: 500px;
 }
+
+:root {
+  --mermaid-bg-color: #1e1e1e;
+  --mermaid-edge-color: #cccccc;
+  --mermaid-node-fg-color: #ffffff;
+  --mermaid-fg-color: #e0e0e0;
+  --mermaid-fg-color--lighter: #b3b3b3;
+  --mermaid-fg-color--lightest: #999999;
+  --mermaid-font-family: monospace;
+  --mermaid-label-bg-color: #333333;
+  --mermaid-label-fg-color: #ffffff;
+  --mermaid-node-bg-color: #2d2d2d;
+  --mermaid-node-fg-color: #ffffff;
+}
