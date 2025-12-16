@@ -9,6 +9,10 @@ iframe {
     height: 500px;
 }
 
+.caption figure{
+  text-align: center;
+}
+
 :root {
   --mermaid-bg-color: #1e1e1e;
   --mermaid-edge-color: #cccccc;
