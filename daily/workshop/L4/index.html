@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="L1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="L1_files/libs/quarto-html/tabby.min.js"></script>
-<script src="L1_files/libs/quarto-html/popper.min.js"></script>
-<script src="L1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="L1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="L1_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="L1_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="L1_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="L4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="L4_files/libs/quarto-html/tabby.min.js"></script>
+<script src="L4_files/libs/quarto-html/popper.min.js"></script>
+<script src="L4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="L4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="L4_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="L4_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="L4_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>Data Journalism</title>
+  <title>The Visual Display</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="L1_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="L1_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="L4_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="L4_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,80 +28,15 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #00e0e0; } /* Attribute */
-    code span.bn { color: #d4d0ab; } /* BaseN */
-    code span.bu { color: #abe338; } /* BuiltIn */
-    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffd700; } /* Constant */
-    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
-    code span.cv { color: #ffd700; } /* CommentVar */
-    code span.do { color: #f8f8f2; } /* Documentation */
-    code span.dt { color: #ffa07a; } /* DataType */
-    code span.dv { color: #d4d0ab; } /* DecVal */
-    code span.er { color: #f07178; text-decoration: underline; } /* Error */
-    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
-    code span.fl { color: #d4d0ab; } /* Float */
-    code span.fu { color: #ffa07a; } /* Function */
-    code span.im { color: #abe338; } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
-    code span.op { color: #ffa07a; } /* Operator */
-    code span.ot { color: #00e0e0; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
-    code span.sc { color: #abe338; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #00e0e0; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="L1_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="L4_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
-  <link href="L1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="L4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="L4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="L4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="L4_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="L4_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="L4_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -393,7 +328,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Journalism</h1>
+  <h1 class="title">The Visual Display</h1>
   <p class="subtitle">The Stanford Daily, Data Section</p>
 
 <div class="quarto-title-authors">
@@ -401,236 +336,359 @@
 
 </section>
 <section>
-<section id="introductions" class="title-slide slide level1 center">
-<h1>Introductions</h1>
+<section id="visual" class="title-slide slide level1 center">
+<h1>Visual</h1>
 
 </section>
-<section id="icebreaker" class="slide level2">
-<h2>Icebreaker</h2>
-<p>Respond to one of the following questions:</p>
-<ol type="1">
-<li>What is your favorite <span style="color:#00FF7F;">memory</span> from childhood?</li>
-<li>What is your <span style="color:#00FF7F;">hot take</span> and why?</li>
-<li>What is the most <span style="color:#00FF7F;">recent book</span> you read?</li>
-</ol>
-<p>Afterwards, please share your Name, Year, Home and why you are interested in the Data Section.</p>
-</section></section>
-<section>
-<section id="logistics" class="title-slide slide level1 center">
-<h1>Logistics</h1>
-
-</section>
-<section id="norms" class="slide level2">
-<h2>Norms</h2>
-<p>You will be maximally curious and respond to questions in alphabetical order.</p>
-</section>
-<section id="communication" class="slide level2">
-<h2>Communication</h2>
+<section id="diagnostic" class="slide level2">
+<h2>Diagnostic</h2>
 <div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Most <span style="color:#00FF7F;">communication</span> will take place over Slack</li>
-</ul>
+<p>It is tempting to <span style="color:#00FF7F;">overhaul</span> the visual in favor of the measure. It is unambiguous. The measure suffers an <span style="color:#00FF7F;">information bottleneck</span>. It can only communicate so much.</p>
 </div>
 <div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Most <span style="color:#00FF7F;">resources</span> are kept in Notion</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Please reach out to our COO <a href="mailto:kau2002@stanford.edu">Kaushik Sampath</a> if you need access to these!</li>
-</ul>
+<blockquote>
+<p>While assessing plots is a somewhat “fuzzy” business, plots have the <span style="color:#00FF7F;">advantage</span> that the human brain is very good in decoding visual patterns and therefore a careful analysis of plots will <span style="color:#00FF7F;">provide insights</span> that are not available with standard numerical measures.</p>
+</blockquote>
 </div>
 </section>
-<section id="lecture" class="slide level2">
-<h2>Lecture</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The section meets <span style="color:#00FF7F;">Tuesday</span> and <span style="color:#00FF7F;">Thursday</span> from 8:00 AM to 9:00 AM PST. We meet on <span style="color:#00FF7F;">Zoom</span>.</li>
-</ul>
+<section id="anscombe" class="slide level2">
+<h2>Anscombe</h2>
+<p>Consider four datasets e.g., a set of tuples <span class="math inline">\(\{ (x_i, y_i) \}\)</span> who share their means, variances, and covariances.</p>
+<div id="tbl-letters" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<div aria-describedby="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Set</th>
+<th style="text-align: right;"><span class="math inline">\(\mu_X\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\sigma_X^2\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\mu_Y\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\sigma_Y^2\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\rho(X,Y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">I</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">0.816</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">II</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">0.816</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">III</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">0.816</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">IV</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">0.816</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>You can expect <span style="color:#00FF7F;">1 to 2 hours</span> of work per week.</li>
-</ul>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Dataset Statistics
+</figcaption>
+</figure>
 </div>
-</section></section>
-<section>
-<section id="the-stanford-daily" class="title-slide slide level1 center">
-<h1>The Stanford Daily</h1>
-
-</section>
-<section id="about-us" class="slide level2">
-<h2>About Us</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Stanford Daily is the independent, <span style="color:#00FF7F;">student-run</span> newspaper of Stanford University.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Daily strives to serve the Stanford community with <span style="color:#00FF7F;">relevant</span>, <span style="color:#00FF7F;">unbiased journalism</span> and provides its staff with unparalleled educational opportunities.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Daily’s coverage of <span style="color:#00FF7F;">anti-Vietnam War protests</span> lead to the passage of the Privacy Protection Act of 1980.</li>
-</ul>
-</div>
-</section>
-<section id="journalism" class="slide level2">
-<h2>Journalism</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Journalism is a <span style="color:#00FF7F;">fundamental right</span> owed to ourselves as citizens and to society as a collective.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>As with many rights, people <span style="color:#00FF7F;">fought</span> for it.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>As with many rights, the way we <span style="color:#00FF7F;">exercise</span> it changed.</li>
-</ul>
-</div>
-</section>
-<section id="the-disruption" class="slide level2">
-<h2>The Disruption</h2>
-<p><img data-src="./assets/detroit.png" class="absolute fragment image-border" style="left: 0px; bottom: 50px; width: 350px; "> <img data-src="./assets/map.png" class="absolute fragment image-border" style="top: 75px; right: 80px; width: 350px; height: 350px; "> <img data-src="./assets/moneyball.png" class="absolute fragment image-border" style="left: 450px; bottom: 50px; width: 350px; "></p>
-<!-- https://en.wikipedia.org/wiki/1967_Detroit_riot -->
-<!-- https://en.wikipedia.org/wiki/Crime_in_New_York_City -->
-<!-- https://en.wikipedia.org/wiki/Jack_Maple -->
-<!-- https://en.wikipedia.org/wiki/Moneyball_(film) -->
 <div class="footer">
-<p>Read More: <a href="https://en.wikipedia.org/wiki/1967_Detroit_riot">Detroit Riot</a>, <a href="https://en.wikipedia.org/wiki/Jack_Maple">Jack Maple</a>, <a href="https://en.wikipedia.org/wiki/Sabermetrics">Sabermetrics</a></p>
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s Quartet</a></p>
 </div>
 </section>
-<section id="data" class="slide level2">
-<h2>Data</h2>
-<p>The total amount of data created, captured, copied, and consumed globally is forecast to increase rapidly, reaching 64.2 zettabytes in 2020.</p>
-<div class="footer">
-<p>Read More: <a href="https://www.demandsage.com/big-data-statistics/">Big Data Statistics</a></p>
-</div>
-<div id="cell-fig-1" class="cell caption" data-execution_count="13">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./assets/data.csv'</span>)</span>
-<span id="cb1-2"><a href=""></a>plot <span class="op">=</span> (</span>
-<span id="cb1-3"><a href=""></a>    ggplot(df, aes(x <span class="op">=</span> <span class="st">"Year"</span>, y <span class="op">=</span> <span class="st">"Amount"</span>)) <span class="op">+</span></span>
-<span id="cb1-4"><a href=""></a>    geom_col(fill<span class="op">=</span><span class="st">"white"</span>, color<span class="op">=</span><span class="st">"white"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span> </span>
-<span id="cb1-5"><a href=""></a>    labs(x<span class="op">=</span><span class="st">'Year'</span>, y<span class="op">=</span><span class="st">'Data (Zettabytes)'</span>) <span class="op">+</span> </span>
-<span id="cb1-6"><a href=""></a>    dark</span>
-<span id="cb1-7"><a href=""></a>)</span>
-<span id="cb1-8"><a href=""></a><span class="bu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<section class="slide level2">
 
-</section><section id="data-output" class="slide level2 output-location-slide"><h2>Data</h2><div class="cell caption output-location-slide" data-execution_count="13">
+
+<img data-src="L4_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s Quartet</a></p>
+</div>
+</section>
+<section id="boxplot" class="slide level2">
+<h2>Boxplot</h2>
+<p>The boxplot depicts five key numbers from the data:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="09222249" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float" data-fig-align="center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>The distribution of mpg across mtcars.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars">Motor Trend Road Car Tests</a></p>
+</div>
+</section>
+<section id="boxplot-1" class="slide level2">
+<h2>Boxplot</h2>
+<p>The boxplot <span style="color:#00FF7F;">conveys less</span> than a histogram, but it takes up less space. It is well suited to compare several datasets:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="02dee528" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>The distribution of mpg across cylinder count.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars">Motor Trend Road Car Tests</a></p>
+</div>
+</section>
+<section id="scatter" class="slide level2">
+<h2>Scatter</h2>
+<p>The scatterplot is used to depict data that come as pairs.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="f5c20423" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-9-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>The scatterplot visualizes the relationship between the two variables.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars">Motor Trend Road Car Tests</a></p>
+</div>
+</section></section>
+<section>
+<section id="display" class="title-slide slide level1 center">
+<h1>Display</h1>
+
+</section>
+<section id="context" class="slide level2">
+<h2>Context</h2>
+<p>Statistical analyses typically <span style="color:#00FF7F;">compare</span> the observed data to a reference. Context is essential for graphical integrity.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="aa183530" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>To provide context use <span style="color:#00FF7F;">small multiples</span>. The compact design of the boxplot makes it well suited for this task.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.edwardtufte.com/book/the-visual-display-of-quantitative-information/">The Display of Information</a> and <a href="https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/southamptondata.txt">Southampton Station</a></p>
+</div>
+</section>
+<section id="traffic" class="slide level2">
+<h2>Traffic</h2>
+<p>To be truthful, data graphics must bear on the question at the heart of quantitative thinking: compared to what?</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="dd4de6b7" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>Nearly all the important questions are left <span style="color:#00FF7F;">unanswered</span> by this display.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.edwardtufte.com/book/the-visual-display-of-quantitative-information/">The Display of Information</a> and <a href="https://www.nytimes.com/1960/01/02/archives/connecticut-cuts-road-toll-4th-year.html">NYT Archive</a></p>
+</div>
+</section>
+<section id="traffic-1" class="slide level2">
+<h2>Traffic</h2>
+<p>To be truthful, data graphics must bear on the question at the heart of quantitative thinking: compared to what?</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="1dbf033f" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>A few more data points <span style="color:#00FF7F;">add immensely</span> to the account.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.edwardtufte.com/book/the-visual-display-of-quantitative-information/">The Display of Information</a> and <a href="https://www.rdocumentation.org/packages/fastR2/versions/0.2.0/topics/Traffic">fastR2</a></p>
+</div>
+</section>
+<section id="traffic-2" class="slide level2">
+<h2>Traffic</h2>
+<p>To be truthful, data graphics must bear on the question at the heart of quantitative thinking: compared to what?</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="27d62113" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="L4_files/figure-revealjs/cell-13-output-1.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:“50%”;">
+<p>Comparisons to <span style="color:#00FF7F;">adjacent states</span> give a still better context. It was not only Connecticut that enjoyed a decline in traffic death.</p>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://www.edwardtufte.com/book/the-visual-display-of-quantitative-information/">The Display of Information</a> and <a href="https://www.rdocumentation.org/packages/fastR2/versions/0.2.0/topics/Traffic">fastR2</a></p>
+</div>
+</section></section>
+<section>
+<section id="evaluate" class="title-slide slide level1 center">
+<h1>Evaluate</h1>
+
+</section>
+<section id="minard" class="slide level2">
+<h2>Minard</h2>
+<div class="caption">
+<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="L1_files/figure-revealjs/fig-1-output-1.svg" class="quarto-figure quarto-figure-center">
+<img data-src="./assets/minard.svg">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Available Data over Years
+Figure&nbsp;1: The Best Statistical Graphic Ever Drawn
 </figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code></code></pre>
+<div class="footer">
+<p>Read More: <a href="https://www.martingrandjean.ch/historical-data-visualization-minard-map/">The Minard Map</a></p>
 </div>
-</div></section></section>
-<section>
-<section id="the-data-section" class="title-slide slide level1 center">
-<h1>The Data Section</h1>
+</section>
+<section id="powerpoint" class="slide level2">
+<h2>Powerpoint</h2>
+<embed src="./assets/plan.pdf" width="100%" height="500">
+<div class="footer">
+<p>Read More: <a href="https://www.nytimes.com/2010/04/27/world/27powerpoint.html">The Enemy is PowerPoint</a></p>
+</div>
+</section>
+<section class="slide level2">
 
-</section>
-<section id="about" class="slide level2">
-<h2>About</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The Data Section helps the Stanford community <span style="color:#00FF7F;">understand stories</span> through numbers.</li>
+<li>Gen.&nbsp;Stanley A. McChrystal, leader of NATO forces in Afghanistan, was shown a PowerPoint slide in Kabul last summer. It looked like a <span style="color:#00FF7F;">bowl of spaghetti</span>.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>There are <span style="color:#00FF7F;">no hard prerequisites</span>, technically or editorially.</li>
+<li>“<span style="color:#00FF7F;">PowerPoint makes us stupid</span>,” Gen.&nbsp;James N. Mattis of the Marine Corps, the Joint Forces commander, said at a military conference in North Carolina.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Writers with <span style="color:#00FF7F;">any interest</span> in computational journalism or data visualization are welcome to join!</li>
+<li>Brig. Gen.&nbsp;H. R. McMaster likened PowerPoint to an <span style="color:#00FF7F;">internal threat</span>. Upon its ban, he led a successful effort to secure the northern Iraqi city of Tal Afar in 2005.</li>
 </ul>
 </div>
-</section>
-<section id="coverage" class="slide level2">
-<h2>Coverage</h2>
 <div class="footer">
-<p>Read More: <a href="https://stanforddaily.com/category/data94305/">Data Coverage</a></p>
-</div>
-<iframe src="https://public.flourish.studio/visualisation/19737380/embed" frameborder="0" scrolling="no" style="width:100%; height:600px;" allowfullscreen="">
-</iframe>
-</section>
-<section id="coverage-1" class="slide level2">
-<h2>Coverage</h2>
-<div class="footer">
-<p>Read More: <a href="https://stanforddaily.com/category/data94305/">Data Coverage</a></p>
-</div>
-<iframe src="https://public.flourish.studio/visualisation/19737371/embed" frameborder="1" scrolling="no" style="width:100%; height:600px;" allowfullscreen="">
-</iframe>
-</section>
-<section id="outcomes" class="slide level2">
-<h2>Outcomes</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The section should be <span style="color:#00FF7F;">proficient</span> in collecting and communicating diverse data sets.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The section should <span style="color:#00FF7F;">collaborate</span> with other sections and invite speakers to learn more about Data Journalism.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The section should encourage <span style="color:#00FF7F;">creative expression</span> that extends beyond what is tried and true.</li>
-</ul>
-</div>
-</section>
-<section id="data-art" class="slide level2">
-<h2>Data Art</h2>
-<p>Data journalism isn’t restricted to standard datasets. It can be a <span style="color:#00FF7F;">creative pursuit</span> mixing our interests with insights.</p>
-<p><img data-src="./assets/Zelda-Poster.jpg" class="absolute fragment" style="top: 200px; left: 0px; width: 300px; "> <img data-src="./assets/Webb-Poster.jpg" class="absolute fragment" style="top: 200px; left: 400px; width: 300px; "> <img data-src="./assets/Roses-Poster.jpg" class="absolute fragment" style="top: 200px; left: 800px; width: 300px; "></p>
-<div class="footer">
-<p>Read More: <a href="https://en.wikipedia.org/wiki/Information_art">Information Art</a></p>
+<p>Read More: <a href="https://www.nytimes.com/2010/04/27/world/27powerpoint.html">The Enemy is PowerPoint</a></p>
 </div>
 </section></section>
 <section>
-<section id="the-close" class="title-slide slide level1 center">
-<h1>The Close</h1>
+<section id="perception" class="title-slide slide level1 center">
+<h1>Perception</h1>
 
 </section>
-<section id="key-takeaways" class="slide level2">
-<h2>Key Takeaways</h2>
+<section id="perceptual-task" class="slide level2">
+<h2>Perceptual Task</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Make sure you are setup on Slack and Notion!</li>
+<li>Cleveland and McGill developed a simple <span style="color:#00FF7F;">taxonomy</span> based on graphical perception.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The Data Section helps the Stanford community understand stories through numbers.</li>
+<li>They identified <span style="color:#00FF7F;">10 elementary perceptual tasks</span> and did experiments to find out which tasks are easy or difficult.</li>
 </ul>
 </div>
-<div class="fragment">
-<ul>
-<li>Reach out to <a href="mailto:jgupta26@stanford.edu">Jay Gupta</a> or <a href="mailto:skomar@stanford.edu">Shreya Komar</a> with questions.</li>
-</ul>
+<div class="footer">
+<p>Read More: <a href="https://www.jstor.org/stable/2288400">Graphical Perception</a></p>
 </div>
+</section>
+<section id="tier-list" class="slide level2">
+<h2>Tier List</h2>
+<ol type="1">
+<li>Position along a common scale</li>
+<li>Position along nonaligned scales</li>
+<li>Length, Direction, Angle</li>
+<li>Area</li>
+<li>Volume, Curvature</li>
+<li>Shading, Saturation</li>
+</ol>
+<div class="footer">
+<p>Read More: <a href="https://www.jstor.org/stable/2288400">Graphical Perception</a></p>
+</div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+
+<img data-src="L4_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://www.jstor.org/stable/2288400">Graphical Perception</a></p>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+
+<img data-src="L4_files/figure-revealjs/cell-15-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://www.jstor.org/stable/2288400">Graphical Perception</a></p>
+</div>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example</h2>
+
+<img data-src="L4_files/figure-revealjs/cell-16-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://www.jstor.org/stable/2288400">Graphical Perception</a></p>
+</div>
+</section>
+<section id="takeaway" class="slide level2">
+<h2>Takeaway</h2>
+<p>Software makes it tempting to produce showy but poor visuals. Take time to consider what you are doing before you actually do it.</p>
 <div class="quarto-auto-generated-content">
 <p><img src="daily.svg" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -642,20 +700,20 @@ Figure&nbsp;1: Available Data over Years
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="L1_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="L4_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="L1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="L1_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="L4_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

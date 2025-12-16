@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="L1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="L1_files/libs/quarto-html/tabby.min.js"></script>
-<script src="L1_files/libs/quarto-html/popper.min.js"></script>
-<script src="L1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="L1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="L1_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="L1_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="L1_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="L3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="L3_files/libs/quarto-html/tabby.min.js"></script>
+<script src="L3_files/libs/quarto-html/popper.min.js"></script>
+<script src="L3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="L3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="L3_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="L3_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="L3_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>Data Journalism</title>
+  <title>The Data Pipeline</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="L1_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="L1_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="L3_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="L3_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,14 +94,14 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="L1_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="L3_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
-  <link href="L1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="L1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="L3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="L3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="L3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="L3_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="L3_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="L3_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -387,13 +387,16 @@
       margin-right: 0; 
     }
   </style>
+  <script src="L3_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="L3_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="L3_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Journalism</h1>
+  <h1 class="title">The Data Pipeline</h1>
   <p class="subtitle">The Stanford Daily, Data Section</p>
 
 <div class="quarto-title-authors">
@@ -401,213 +404,191 @@
 
 </section>
 <section>
-<section id="introductions" class="title-slide slide level1 center">
-<h1>Introductions</h1>
+<section id="bike-thefts" class="title-slide slide level1 center">
+<h1>Bike Thefts</h1>
 
 </section>
-<section id="icebreaker" class="slide level2">
-<h2>Icebreaker</h2>
-<p>Respond to one of the following questions:</p>
-<ol type="1">
-<li>What is your favorite <span style="color:#00FF7F;">memory</span> from childhood?</li>
-<li>What is your <span style="color:#00FF7F;">hot take</span> and why?</li>
-<li>What is the most <span style="color:#00FF7F;">recent book</span> you read?</li>
-</ol>
-<p>Afterwards, please share your Name, Year, Home and why you are interested in the Data Section.</p>
-</section></section>
-<section>
-<section id="logistics" class="title-slide slide level1 center">
-<h1>Logistics</h1>
-
-</section>
-<section id="norms" class="slide level2">
-<h2>Norms</h2>
-<p>You will be maximally curious and respond to questions in alphabetical order.</p>
-</section>
-<section id="communication" class="slide level2">
-<h2>Communication</h2>
+<section id="bike-culture" class="slide level2">
+<h2>Bike Culture</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Most <span style="color:#00FF7F;">communication</span> will take place over Slack</li>
+<li>Stanford is the only university in the nation to be <span style="color:#00FF7F;">awarded</span> four consecutive Platinum Designations by the League of American Bicyclists.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Most <span style="color:#00FF7F;">resources</span> are kept in Notion</li>
+<li>With 10,000+ bikes pedaling daily, the campus features a <span style="color:#00FF7F;">robust bike infrastructure</span> with more on the way.</li>
 </ul>
 </div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Please reach out to our COO <a href="mailto:kau2002@stanford.edu">Kaushik Sampath</a> if you need access to these!</li>
-</ul>
-</div>
-</section>
-<section id="lecture" class="slide level2">
-<h2>Lecture</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The section meets <span style="color:#00FF7F;">Tuesday</span> and <span style="color:#00FF7F;">Thursday</span> from 8:00 AM to 9:00 AM PST. We meet on <span style="color:#00FF7F;">Zoom</span>.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>You can expect <span style="color:#00FF7F;">1 to 2 hours</span> of work per week.</li>
-</ul>
-</div>
-</section></section>
-<section>
-<section id="the-stanford-daily" class="title-slide slide level1 center">
-<h1>The Stanford Daily</h1>
-
-</section>
-<section id="about-us" class="slide level2">
-<h2>About Us</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Stanford Daily is the independent, <span style="color:#00FF7F;">student-run</span> newspaper of Stanford University.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Daily strives to serve the Stanford community with <span style="color:#00FF7F;">relevant</span>, <span style="color:#00FF7F;">unbiased journalism</span> and provides its staff with unparalleled educational opportunities.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Daily’s coverage of <span style="color:#00FF7F;">anti-Vietnam War protests</span> lead to the passage of the Privacy Protection Act of 1980.</li>
-</ul>
-</div>
-</section>
-<section id="journalism" class="slide level2">
-<h2>Journalism</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Journalism is a <span style="color:#00FF7F;">fundamental right</span> owed to ourselves as citizens and to society as a collective.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>As with many rights, people <span style="color:#00FF7F;">fought</span> for it.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>As with many rights, the way we <span style="color:#00FF7F;">exercise</span> it changed.</li>
-</ul>
-</div>
-</section>
-<section id="the-disruption" class="slide level2">
-<h2>The Disruption</h2>
-<p><img data-src="./assets/detroit.png" class="absolute fragment image-border" style="left: 0px; bottom: 50px; width: 350px; "> <img data-src="./assets/map.png" class="absolute fragment image-border" style="top: 75px; right: 80px; width: 350px; height: 350px; "> <img data-src="./assets/moneyball.png" class="absolute fragment image-border" style="left: 450px; bottom: 50px; width: 350px; "></p>
-<!-- https://en.wikipedia.org/wiki/1967_Detroit_riot -->
-<!-- https://en.wikipedia.org/wiki/Crime_in_New_York_City -->
-<!-- https://en.wikipedia.org/wiki/Jack_Maple -->
-<!-- https://en.wikipedia.org/wiki/Moneyball_(film) -->
 <div class="footer">
-<p>Read More: <a href="https://en.wikipedia.org/wiki/1967_Detroit_riot">Detroit Riot</a>, <a href="https://en.wikipedia.org/wiki/Jack_Maple">Jack Maple</a>, <a href="https://en.wikipedia.org/wiki/Sabermetrics">Sabermetrics</a></p>
+<p>Read More: <a href="https://transportation.stanford.edu/news/pedaling-forward-2022-report-bikes-stanford">Pedaling Foward</a></p>
 </div>
 </section>
-<section id="data" class="slide level2">
-<h2>Data</h2>
-<p>The total amount of data created, captured, copied, and consumed globally is forecast to increase rapidly, reaching 64.2 zettabytes in 2020.</p>
+<section id="bike-thefts-1" class="slide level2">
+<h2>Bike Thefts</h2>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>SUDPS publishes an annual <span style="color:#00FF7F;">crime statistics report</span> in accordance with the Clery Act.</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>TSD publishes weekly <span style="color:#00FF7F;">Police Blotters</span> detailing a selection of incidents from the SUDPS bulliten.</li>
+</ul>
+</div>
 <div class="footer">
-<p>Read More: <a href="https://www.demandsage.com/big-data-statistics/">Big Data Statistics</a></p>
-</div>
-<div id="cell-fig-1" class="cell caption" data-execution_count="13">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./assets/data.csv'</span>)</span>
-<span id="cb1-2"><a href=""></a>plot <span class="op">=</span> (</span>
-<span id="cb1-3"><a href=""></a>    ggplot(df, aes(x <span class="op">=</span> <span class="st">"Year"</span>, y <span class="op">=</span> <span class="st">"Amount"</span>)) <span class="op">+</span></span>
-<span id="cb1-4"><a href=""></a>    geom_col(fill<span class="op">=</span><span class="st">"white"</span>, color<span class="op">=</span><span class="st">"white"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span> </span>
-<span id="cb1-5"><a href=""></a>    labs(x<span class="op">=</span><span class="st">'Year'</span>, y<span class="op">=</span><span class="st">'Data (Zettabytes)'</span>) <span class="op">+</span> </span>
-<span id="cb1-6"><a href=""></a>    dark</span>
-<span id="cb1-7"><a href=""></a>)</span>
-<span id="cb1-8"><a href=""></a><span class="bu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-
-</section><section id="data-output" class="slide level2 output-location-slide"><h2>Data</h2><div class="cell caption output-location-slide" data-execution_count="13">
-<div class="cell-output cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="L1_files/figure-revealjs/fig-1-output-1.svg" class="quarto-figure quarto-figure-center">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Available Data over Years
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code></code></pre>
-</div>
-</div></section></section>
-<section>
-<section id="the-data-section" class="title-slide slide level1 center">
-<h1>The Data Section</h1>
-
-</section>
-<section id="about" class="slide level2">
-<h2>About</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Data Section helps the Stanford community <span style="color:#00FF7F;">understand stories</span> through numbers.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>There are <span style="color:#00FF7F;">no hard prerequisites</span>, technically or editorially.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Writers with <span style="color:#00FF7F;">any interest</span> in computational journalism or data visualization are welcome to join!</li>
-</ul>
+<p>Read More: <a href="https://police.stanford.edu/security-report.html">Stanford Crime Report</a></p>
 </div>
 </section>
-<section id="coverage" class="slide level2">
-<h2>Coverage</h2>
+<section id="bike-thefts-2" class="slide level2">
+<h2>Bike Thefts</h2>
+<blockquote>
+<p>One thing that would be personally more helpful would be if there was more readily available aggregate data on times, locations, and general trends of bike theft.</p>
+</blockquote>
 <div class="footer">
-<p>Read More: <a href="https://stanforddaily.com/category/data94305/">Data Coverage</a></p>
+<p>Read More: <a href="https://police.stanford.edu/security-report.html">Stanford Crime Report</a></p>
 </div>
-<iframe src="https://public.flourish.studio/visualisation/19737380/embed" frameborder="0" scrolling="no" style="width:100%; height:600px;" allowfullscreen="">
+</section>
+<section id="police-blotter" class="slide level2">
+<h2>Police Blotter</h2>
+<div style="height: 1.5rem;">
+
+</div>
+<iframe src="https://stanforddaily.com/2025/02/19/police-blotter-hit-and-run-non-criminal-hate-violence-and-intent-of-identity-fraud/" frameborder="1" allowfullscreen="">
+</iframe>
+<div class="footer">
+<p>Inspect More: <a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
+</div>
+</section>
+<section id="think-pair-share" class="slide level2">
+<h2>Think, Pair, Share</h2>
+<p>With the person sitting next to you, discuss how you would approach collecting this information?</p>
+<div class="footer">
+<p>Inspect More: <a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
+</div>
+</section>
+<section id="strategy" class="slide level2">
+<h2>Strategy</h2>
+<p>The plan of attack is collect Police Blotters, process each of them (e.g., collect bike thefts, dates, etc), and merge.</p>
+<div class="mermaid-container" style="width: 100%; height: 100%">
+<div class="cell" data-reveal="true" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A[Collect Blotters]
+    A --&gt; B[Article 1]
+    A --&gt; C[Article 2]
+    A --&gt; D[Article 3]
+    A --&gt; E[Article 4]
+    A --&gt; F[Article 5]
+
+    B --&gt; B1[Process]
+    C --&gt; C1[Process]
+    D --&gt; D1[Process]
+    E --&gt; E1[Process]
+    F --&gt; F1[Process]
+
+    B1 --&gt; G[Dataset]
+    C1 --&gt; G
+    D1 --&gt; G
+    E1 --&gt; G
+    F1 --&gt; G
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scraping-data" class="slide level2">
+<h2>Scraping Data</h2>
+<p>This is some pseudo-code outlining how one <em>might</em> scrape TSD Police Blotters.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href=""></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a><span class="co"># Fetch posts from WordPress API</span></span>
+<span id="cb1-5"><a href=""></a>API <span class="op">=</span> <span class="st">'https://stanforddaily.com/wp-json/wp/v2/posts?search=police blotter&amp;per_page=100'</span></span>
+<span id="cb1-6"><a href=""></a>response <span class="op">=</span> requests.get(API)</span>
+<span id="cb1-7"><a href=""></a>posts <span class="op">=</span> response.json()</span>
+<span id="cb1-8"><a href=""></a></span>
+<span id="cb1-9"><a href=""></a><span class="co"># Collect listed articles</span></span>
+<span id="cb1-10"><a href=""></a>articles <span class="op">=</span> []</span>
+<span id="cb1-11"><a href=""></a><span class="cf">for</span> post <span class="kw">in</span> posts:</span>
+<span id="cb1-12"><a href=""></a>    request <span class="op">=</span> requests.get(post[<span class="st">'link'</span>])</span>
+<span id="cb1-13"><a href=""></a>    soup <span class="op">=</span> BeautifulSoup(request.text, <span class="st">'html.parser'</span>)</span>
+<span id="cb1-14"><a href=""></a>    articles.append({<span class="st">'title'</span>: post[<span class="st">'title'</span>], <span class="st">'content'</span>: soup.get_text()})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="extracting-text" class="slide level2">
+<h2>Extracting Text</h2>
+<p>This is some pseudo-code outlining how one <em>might</em> identify bike thefts from a Police Blotter and store related features.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="cf">for</span> article <span class="kw">in</span> articles:</span>
+<span id="cb2-2"><a href=""></a>    content <span class="op">=</span> parse_json(meta.string)</span>
+<span id="cb2-3"><a href=""></a>    </span>
+<span id="cb2-4"><a href=""></a>    <span class="co"># Key Features</span></span>
+<span id="cb2-5"><a href=""></a>    headline <span class="op">=</span> content[<span class="st">'headline'</span>]</span>
+<span id="cb2-6"><a href=""></a>    url <span class="op">=</span> content[<span class="st">'url'</span>]</span>
+<span id="cb2-7"><a href=""></a>    author <span class="op">=</span> content[<span class="st">'creator'</span>]</span>
+<span id="cb2-8"><a href=""></a>    year <span class="op">=</span> content[[<span class="st">'datePublished'</span>]</span>
+<span id="cb2-9"><a href=""></a>    </span>
+<span id="cb2-10"><a href=""></a>    <span class="cf">for</span> heading <span class="kw">in</span> article.find_all(<span class="st">'h2'</span>, class_<span class="op">=</span><span class="st">'wp-block-heading'</span>):</span>
+<span id="cb2-11"><a href=""></a>        <span class="cf">for</span> bullet <span class="kw">in</span> heading.find_next(<span class="st">'ul'</span>).find_all(<span class="st">'li'</span>):</span>
+<span id="cb2-12"><a href=""></a>            <span class="co"># check 'bike' or 'bicycle'</span></span>
+<span id="cb2-13"><a href=""></a>            <span class="co"># check 'petty' or 'grand'</span></span>
+<span id="cb2-14"><a href=""></a>            <span class="co"># split 'surrounding' or 'from' or 'at'</span></span>
+<span id="cb2-15"><a href=""></a>            data.append({...})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="spatial-analysis" class="slide level2">
+<h2>Spatial Analysis</h2>
+<p>We need to geocode addresses to (lat, long) coordinates in order to map thefts. Google Maps is inexpensive.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> googlemaps</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>gmaps <span class="op">=</span> googlemaps.Client(key<span class="op">=</span><span class="st">'secret'</span>)</span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="cf">for</span> location <span class="kw">in</span> locations:</span>
+<span id="cb3-6"><a href=""></a>    address <span class="op">=</span> <span class="ss">f'California, Palo Alto, Stanford, </span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb3-7"><a href=""></a>    <span class="cf">try</span>:</span>
+<span id="cb3-8"><a href=""></a>        geocode <span class="op">=</span> gmaps.geocode(address)</span>
+<span id="cb3-9"><a href=""></a>        time.sleep(delay)</span>
+<span id="cb3-10"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Successfully processed </span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-11"><a href=""></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-12"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Error processing address '</span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="footer">
+<p>Play More: <a href="https://developers.google.com/maps/documentation/geocoding/overview">Google Maps API</a></p>
+</div>
+</section>
+<section id="report" class="slide level2">
+<h2>Report</h2>
+<p>How do we report our findings? We need to <span style="color:#00FF7F;">storytell</span> and keep everything simple for the reader. The 5Ws are helpful!</p>
+</section>
+<section id="when" class="slide level2">
+<h2>When</h2>
+<iframe src="https://public.flourish.studio/visualisation/21815702/embed" frameborder="0" scrolling="no" style="width:100%; height:550px;" allowfullscreen="">
 </iframe>
 </section>
-<section id="coverage-1" class="slide level2">
-<h2>Coverage</h2>
-<div class="footer">
-<p>Read More: <a href="https://stanforddaily.com/category/data94305/">Data Coverage</a></p>
-</div>
-<iframe src="https://public.flourish.studio/visualisation/19737371/embed" frameborder="1" scrolling="no" style="width:100%; height:600px;" allowfullscreen="">
+<section id="where" class="slide level2">
+<h2>Where</h2>
+<iframe src="https://public.flourish.studio/visualisation/21817859/embed" frameborder="0" scrolling="no" style="width:100%; height:550px;" allowfullscreen="">
 </iframe>
 </section>
-<section id="outcomes" class="slide level2">
-<h2>Outcomes</h2>
+<section id="sourcing" class="slide level2">
+<h2>Sourcing</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The section should be <span style="color:#00FF7F;">proficient</span> in collecting and communicating diverse data sets.</li>
+<li>A <span style="color:#00FF7F;">story</span> is more than charts and descriptive statistics.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The section should <span style="color:#00FF7F;">collaborate</span> with other sections and invite speakers to learn more about Data Journalism.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The section should encourage <span style="color:#00FF7F;">creative expression</span> that extends beyond what is tried and true.</li>
+<li>We need to source <span style="color:#00FF7F;">stakeholders</span> (e.g., bikers, SUDPS, Stanford Transportation, etc.) with perspective!</li>
 </ul>
 </div>
 </section>
-<section id="data-art" class="slide level2">
-<h2>Data Art</h2>
-<p>Data journalism isn’t restricted to standard datasets. It can be a <span style="color:#00FF7F;">creative pursuit</span> mixing our interests with insights.</p>
-<p><img data-src="./assets/Zelda-Poster.jpg" class="absolute fragment" style="top: 200px; left: 0px; width: 300px; "> <img data-src="./assets/Webb-Poster.jpg" class="absolute fragment" style="top: 200px; left: 400px; width: 300px; "> <img data-src="./assets/Roses-Poster.jpg" class="absolute fragment" style="top: 200px; left: 800px; width: 300px; "></p>
-<div class="footer">
-<p>Read More: <a href="https://en.wikipedia.org/wiki/Information_art">Information Art</a></p>
-</div>
+<section id="think-pair-share-1" class="slide level2">
+<h2>Think, Pair, Share</h2>
+<p>With the person sitting next to you, discuss how you would approach sourcing?</p>
 </section></section>
 <section>
 <section id="the-close" class="title-slide slide level1 center">
@@ -618,17 +599,17 @@ Figure&nbsp;1: Available Data over Years
 <h2>Key Takeaways</h2>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Make sure you are setup on Slack and Notion!</li>
+<li>The Data Section helps the Stanford community understand stories through numbers.</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The Data Section helps the Stanford community understand stories through numbers.</li>
+<li>The Data Pipeline moves from source to story.</li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>Reach out to <a href="mailto:jgupta26@stanford.edu">Jay Gupta</a> or <a href="mailto:skomar@stanford.edu">Shreya Komar</a> with questions.</li>
+<li>Reach out to <a href="mailto:jgupta26@stanford.edu">Jay Gupta</a> with questions.</li>
 </ul>
 </div>
 <div class="quarto-auto-generated-content">
@@ -642,20 +623,20 @@ Figure&nbsp;1: Available Data over Years
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="L1_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="L3_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="L1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="L1_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="L1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="L3_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
