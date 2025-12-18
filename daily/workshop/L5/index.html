@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="L3_files/libs/clipboard/clipboard.min.js"></script>
-<script src="L3_files/libs/quarto-html/tabby.min.js"></script>
-<script src="L3_files/libs/quarto-html/popper.min.js"></script>
-<script src="L3_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="L3_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="L3_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="L3_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="L3_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="L5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="L5_files/libs/quarto-html/tabby.min.js"></script>
+<script src="L5_files/libs/quarto-html/popper.min.js"></script>
+<script src="L5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="L5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="L5_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="L5_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="L5_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>The Data Pipeline</title>
+  <title>Model and Paradox</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="L3_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="L3_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="L5_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="L5_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,14 +94,14 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="L3_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="L5_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
-  <link href="L3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="L3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="L3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="L3_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="L3_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="L3_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="L5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="L5_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="L5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="L5_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="L5_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="L5_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -387,16 +387,13 @@
       margin-right: 0; 
     }
   </style>
-  <script src="L3_files/libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="L3_files/libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="L3_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">The Data Pipeline</h1>
+  <h1 class="title">Model and Paradox</h1>
   <p class="subtitle">The Stanford Daily, Data Section</p>
 
 <div class="quarto-title-authors">
@@ -404,214 +401,236 @@
 
 </section>
 <section>
-<section id="bike-thefts" class="title-slide slide level1 center">
-<h1>Bike Thefts</h1>
+<section id="puzzle" class="title-slide slide level1 center">
+<h1>Puzzle</h1>
 
 </section>
-<section id="bike-culture" class="slide level2">
-<h2>Bike Culture</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Stanford is the only university in the nation to be <span style="color:#00FF7F;">awarded</span> four consecutive Platinum Designations by the League of American Bicyclists.</li>
-</ul>
+<section id="treatment" class="slide level2">
+<h2>Treatment</h2>
+<p>Consider a <a href="https://en.wikipedia.org/wiki/Contingency_table">Contingency Table</a> comparing the success rates of two treatments for Kidney Stones by Stone.</p>
+<div id="tbl-letters" class="quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<div aria-describedby="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 37%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Stone</th>
+<th style="text-align: left;">Treatment A</th>
+<th style="text-align: left;">Treatment B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Small</td>
+<td style="text-align: left;"><span style="color:#00FF7F;">93%</span> (81/87)</td>
+<td style="text-align: left;">87% (234/270)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large</td>
+<td style="text-align: left;"><span style="color:#00FF7F;">73%</span> (192/263)</td>
+<td style="text-align: left;">69% (55/80)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">78% (273/350)</td>
+<td style="text-align: left;"><span style="color:#00FF7F;">83%</span> (289/350)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Success Rate by Treatment
+</figcaption>
+</figure>
 </div>
 <div class="fragment fade-in-then-semi-out">
-<ul>
-<li>With 10,000+ bikes pedaling daily, the campus features a <span style="color:#00FF7F;">robust bike infrastructure</span> with more on the way.</li>
-</ul>
+<p>Based on the available data which treatment is better?</p>
 </div>
 <div class="footer">
-<p>Read More: <a href="https://transportation.stanford.edu/news/pedaling-forward-2022-report-bikes-stanford">Pedaling Foward</a></p>
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Simpson’s Paradox</a></p>
 </div>
 </section>
-<section id="bike-thefts-1" class="slide level2">
-<h2>Bike Thefts</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>SUDPS publishes an annual <span style="color:#00FF7F;">crime statistics report</span> in accordance with the Clery Act.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>TSD publishes weekly <span style="color:#00FF7F;">Police Blotters</span> detailing a selection of incidents from the SUDPS bulliten.</li>
-</ul>
-</div>
-<div class="footer">
-<p>Read More: <a href="https://police.stanford.edu/security-report.html">Stanford Crime Report</a></p>
-</div>
-</section>
-<section id="bike-thefts-2" class="slide level2">
-<h2>Bike Thefts</h2>
-<blockquote>
-<p>One thing that would be personally more helpful would be if there was more readily available aggregate data on times, locations, and general trends of bike theft.</p>
-</blockquote>
-<div class="footer">
-<p>Read More: <a href="https://police.stanford.edu/security-report.html">Stanford Crime Report</a></p>
-</div>
-</section>
-<section id="police-blotter" class="slide level2">
-<h2>Police Blotter</h2>
-<div style="height: 1.5rem;">
+<section id="intuition" class="slide level2">
+<h2>Intuition</h2>
 
-</div>
-<iframe src="https://stanforddaily.com/2025/02/19/police-blotter-hit-and-run-non-criminal-hate-violence-and-intent-of-identity-fraud/" frameborder="1" allowfullscreen="">
-</iframe>
-<div class="footer">
-<p>Inspect More: <a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
+<img data-src="L5_files/figure-revealjs/cell-7-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Simpson’s Paradox</a></p>
 </div>
 </section>
-<section id="think-pair-share" class="slide level2">
-<h2>Think, Pair, Share</h2>
-<p>With the person sitting next to you, discuss how you would approach collecting this information?</p>
+<section id="guilty" class="slide level2">
+<h2>Guilty</h2>
+<p>We are given a test with a TPR of 1 and a TNR of 0.99. We are asked to jail the guilty with 0.95 confidence.</p>
+<div class="fragment fade-in-then-semi-out">
+<p>How should we <span style="color:#00FF7F;">interpret</span> confidence?</p>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ol type="1">
+<li><span class="math inline">\(\mathbb{P} ( \texttt{Jail} \mid \texttt{Innocent}) \le 0.05\)</span>.</li>
+</ol>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ol start="2" type="1">
+<li><span class="math inline">\(\mathbb{P} ( \texttt{Innocent} \mid \texttt{Jail}) \le 0.05\)</span></li>
+</ol>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<p>For the former, a simple proposal is to test everyone and jail every positive result. For the latter, we do a bit of work.</p>
+</div>
 <div class="footer">
-<p>Inspect More: <a href="https://stanforddaily.com/category/news/crime-news/">Police Blotter</a></p>
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian Statistics</a></p>
 </div>
 </section>
 <section id="strategy" class="slide level2">
 <h2>Strategy</h2>
-<p>The plan of attack is collect Police Blotters, process each of them (e.g., collect bike thefts, dates, etc), and merge.</p>
-<div class="mermaid-container" style="width: 100%; height: 100%">
-<div class="cell" data-reveal="true" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph LR
-    A[Collect Blotters]
-    A --&gt; B[Article 1]
-    A --&gt; C[Article 2]
-    A --&gt; D[Article 3]
-    A --&gt; E[Article 4]
-    A --&gt; F[Article 5]
-
-    B --&gt; B1[Process]
-    C --&gt; C1[Process]
-    D --&gt; D1[Process]
-    E --&gt; E1[Process]
-    F --&gt; F1[Process]
-
-    B1 --&gt; G[Dataset]
-    C1 --&gt; G
-    D1 --&gt; G
-    E1 --&gt; G
-    F1 --&gt; G
-</pre>
+<p>We apply Bayes Theorem and the Law of Total Probability to recover the desired probability.</p>
+<p><span class="math display">\[\begin{align*}
+    \mathbb{P}( \texttt{Innocent} \mid \texttt{Jail})
+    = \frac{0.01 \, \mathbb{P}( \texttt{Innocent})}{1 - 0.99 \, \mathbb{P}(\texttt{Innocent})}
+\end{align*}\]</span></p>
+<div class="fragment fade-in-then-semi-out">
+<p>Problem: we do not know how many blobs are innocent.</p>
 </div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="scraping-data" class="slide level2">
-<h2>Scraping Data</h2>
-<p>This is some pseudo-code outlining how one <em>might</em> scrape TSD Police Blotters.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href=""></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb1-3"><a href=""></a></span>
-<span id="cb1-4"><a href=""></a><span class="co"># Fetch posts from WordPress API</span></span>
-<span id="cb1-5"><a href=""></a>API <span class="op">=</span> <span class="st">'https://stanforddaily.com/wp-json/wp/v2/posts?search=police blotter&amp;per_page=100'</span></span>
-<span id="cb1-6"><a href=""></a>response <span class="op">=</span> requests.get(API)</span>
-<span id="cb1-7"><a href=""></a>posts <span class="op">=</span> response.json()</span>
-<span id="cb1-8"><a href=""></a></span>
-<span id="cb1-9"><a href=""></a><span class="co"># Collect listed articles</span></span>
-<span id="cb1-10"><a href=""></a>articles <span class="op">=</span> []</span>
-<span id="cb1-11"><a href=""></a><span class="cf">for</span> post <span class="kw">in</span> posts:</span>
-<span id="cb1-12"><a href=""></a>    request <span class="op">=</span> requests.get(post[<span class="st">'link'</span>])</span>
-<span id="cb1-13"><a href=""></a>    soup <span class="op">=</span> BeautifulSoup(request.text, <span class="st">'html.parser'</span>)</span>
-<span id="cb1-14"><a href=""></a>    articles.append({<span class="st">'title'</span>: post[<span class="st">'title'</span>], <span class="st">'content'</span>: soup.get_text()})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="extracting-text" class="slide level2">
-<h2>Extracting Text</h2>
-<p>This is some pseudo-code outlining how one <em>might</em> identify bike thefts from a Police Blotter and store related features.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="cf">for</span> article <span class="kw">in</span> articles:</span>
-<span id="cb2-2"><a href=""></a>    content <span class="op">=</span> parse_json(meta.string)</span>
-<span id="cb2-3"><a href=""></a>    </span>
-<span id="cb2-4"><a href=""></a>    <span class="co"># Key Features</span></span>
-<span id="cb2-5"><a href=""></a>    headline <span class="op">=</span> content[<span class="st">'headline'</span>]</span>
-<span id="cb2-6"><a href=""></a>    url <span class="op">=</span> content[<span class="st">'url'</span>]</span>
-<span id="cb2-7"><a href=""></a>    author <span class="op">=</span> content[<span class="st">'creator'</span>]</span>
-<span id="cb2-8"><a href=""></a>    year <span class="op">=</span> content[[<span class="st">'datePublished'</span>]</span>
-<span id="cb2-9"><a href=""></a>    </span>
-<span id="cb2-10"><a href=""></a>    <span class="cf">for</span> heading <span class="kw">in</span> article.find_all(<span class="st">'h2'</span>, class_<span class="op">=</span><span class="st">'wp-block-heading'</span>):</span>
-<span id="cb2-11"><a href=""></a>        <span class="cf">for</span> bullet <span class="kw">in</span> heading.find_next(<span class="st">'ul'</span>).find_all(<span class="st">'li'</span>):</span>
-<span id="cb2-12"><a href=""></a>            <span class="co"># check 'bike' or 'bicycle'</span></span>
-<span id="cb2-13"><a href=""></a>            <span class="co"># check 'petty' or 'grand'</span></span>
-<span id="cb2-14"><a href=""></a>            <span class="co"># split 'surrounding' or 'from' or 'at'</span></span>
-<span id="cb2-15"><a href=""></a>            data.append({...})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="spatial-analysis" class="slide level2">
-<h2>Spatial Analysis</h2>
-<p>We need to geocode addresses to (lat, long) coordinates in order to map thefts. Google Maps is inexpensive.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> googlemaps</span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a>gmaps <span class="op">=</span> googlemaps.Client(key<span class="op">=</span><span class="st">'secret'</span>)</span>
-<span id="cb3-4"><a href=""></a></span>
-<span id="cb3-5"><a href=""></a><span class="cf">for</span> location <span class="kw">in</span> locations:</span>
-<span id="cb3-6"><a href=""></a>    address <span class="op">=</span> <span class="ss">f'California, Palo Alto, Stanford, </span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb3-7"><a href=""></a>    <span class="cf">try</span>:</span>
-<span id="cb3-8"><a href=""></a>        geocode <span class="op">=</span> gmaps.geocode(address)</span>
-<span id="cb3-9"><a href=""></a>        time.sleep(delay)</span>
-<span id="cb3-10"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Successfully processed </span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-11"><a href=""></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb3-12"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Error processing address '</span><span class="sc">{</span>address<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="footer">
-<p>Play More: <a href="https://developers.google.com/maps/documentation/geocoding/overview">Google Maps API</a></p>
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian Statistics</a></p>
 </div>
 </section>
-<section id="report" class="slide level2">
-<h2>Report</h2>
-<p>How do we report our findings? We need to <span style="color:#00FF7F;">storytell</span> and keep everything simple for the reader. The 5Ws are helpful!</p>
-</section>
-<section id="when" class="slide level2">
-<h2>When</h2>
-<iframe src="https://public.flourish.studio/visualisation/21815702/embed" frameborder="0" scrolling="no" style="width:100%; height:550px;" allowfullscreen="">
-</iframe>
-</section>
-<section id="where" class="slide level2">
-<h2>Where</h2>
-<iframe src="https://public.flourish.studio/visualisation/21817859/embed" frameborder="0" scrolling="no" style="width:100%; height:550px;" allowfullscreen="">
-</iframe>
-</section>
-<section id="sourcing" class="slide level2">
-<h2>Sourcing</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>A <span style="color:#00FF7F;">story</span> is more than charts and descriptive statistics.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>We need to source <span style="color:#00FF7F;">stakeholders</span> (e.g., bikers, SUDPS, Stanford Transportation, etc.) with perspective!</li>
-</ul>
+<section class="slide level2">
+
+<p>For prior <span class="math inline">\(\mathbb{P}(\texttt{Innocent}) \in [0.84, 1]\)</span> we are not confident.</p>
+
+<img data-src="L5_files/figure-revealjs/cell-8-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian Statistics</a></p>
 </div>
 </section>
-<section id="think-pair-share-1" class="slide level2">
-<h2>Think, Pair, Share</h2>
-<p>With the person sitting next to you, discuss how you would approach sourcing?</p>
+<section id="aircraft" class="slide level2">
+<h2>Aircraft</h2>
+<p>If you are designing an aircraft, <span style="color:#00FF7F;">where</span> do you add armor?</p>
+<div class="caption">
+<div id="fig-diagram" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="assets/aircraft.svg" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Aircraft Damage Pattern
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Survivorship_bias">Survivorship Bias</a></p>
+</div>
 </section></section>
 <section>
-<section id="the-close" class="title-slide slide level1 center">
-<h1>The Close</h1>
+<section id="model" class="title-slide slide level1 center">
+<h1>Model</h1>
 
 </section>
-<section id="takeaways" class="slide level2">
-<h2>Takeaways</h2>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Data Section helps the Stanford community understand stories through numbers.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The Data Pipeline moves from source to story.</li>
-</ul>
+<section id="winners-curse" class="slide level2">
+<h2>Winner’s Curse</h2>
+<p>It is well known that in a test-retest situation e.g., scores on midterm vs final, the top scorers on the first test tend to <span style="color:#00FF7F;">fall back</span> on the second test. Why?</p>
+<div class="fragment">
+<p>We model the test scores as ability and chance error.</p>
 </div>
 <div class="fragment">
-<ul>
-<li>Reach out to <a href="mailto:jgupta26@stanford.edu">Jay Gupta</a> with questions.</li>
-</ul>
+<div id="35c4f01a" class="cell" data-execution_count="56">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb1-2"><a href=""></a>n <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-3"><a href=""></a>ability <span class="op">=</span> np.random.normal(size<span class="op">=</span>n)</span>
+<span id="cb1-4"><a href=""></a>midterm <span class="op">=</span> ability <span class="op">+</span> np.random.normal(size<span class="op">=</span>n)</span>
+<span id="cb1-5"><a href=""></a>final <span class="op">=</span> ability <span class="op">+</span> np.random.normal(size<span class="op">=</span>n)</span>
+<span id="cb1-6"><a href=""></a>top <span class="op">=</span> np.argsort(midterm)[<span class="op">-</span><span class="dv">5</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Winner%27s_curse">Winner’s Curse</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="L5_files/figure-revealjs/cell-10-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Winner%27s_curse">Winner’s Curse</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="L5_files/figure-revealjs/cell-11-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Winner%27s_curse">Winner’s Curse</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="L5_files/figure-revealjs/cell-12-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Winner%27s_curse">Winner’s Curse</a></p>
+</div>
+</section>
+<section id="kellers-race" class="slide level2">
+<h2>Keller’s Race</h2>
+<p>In 1973 Joe Keller published a paper about <span style="color:#00FF7F;">running</span> an optimal race. Clearly, as the distance becomes longer one has to run at a lower speed, but what is the relationship?</p>
+<div class="fragment">
+<p><span class="math display">\[
+v^2 = \beta_0 + \frac{\beta_1}{t}
+\]</span></p>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://doi.org/10.1063/1.3128231">A Theory of Competitive Running</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="L5_files/figure-revealjs/cell-14-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Read More: <a href="https://doi.org/10.1063/1.3128231">A Theory of Competitive Running</a></p>
+</div>
+</section>
+<section id="bootstrap" class="slide level2">
+<h2>Bootstrap</h2>
+<p>We sample observations <span class="math inline">\(X \sim \text{geo}(\theta)\)</span> and our task is to <span style="color:#00FF7F;">estimate</span> <span class="math inline">\(\theta\)</span>. Recall <span class="math inline">\(\bar{X} = 1 / \theta\)</span> so <span class="math inline">\(\theta \approx 1 / \bar{X}\)</span>.</p>
+<div class="fragment">
+<ol type="1">
+<li>Simulate <span class="math inline">\(X_{1}^{\star} \dots X_{n}^{\star}\)</span> from <span class="math inline">\(f_{\theta}\)</span> and compute the estimator.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Repeat the process <span class="math inline">\(B = 1000\)</span> times.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Estimate the Standard Error.</li>
+</ol>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">Bootstrap</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="L5_files/figure-revealjs/cell-15-output-1.svg" class="r-stretch"><div class="footer">
+<p>Read More: <a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">Bootstrap</a></p>
+</div>
+</section></section>
+<section>
+<section id="close" class="title-slide slide level1 center">
+<h1>Close</h1>
+
+</section>
+<section id="takeaway" class="slide level2">
+<h2>Takeaway</h2>
+<p>The application of data admits puzzles, paradox, and exciting methods. It is worth study!</p>
 <div class="quarto-auto-generated-content">
 <p><img src="daily.svg" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -623,20 +642,20 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="L3_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="L5_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="L3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="L3_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="L3_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="L5_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
