@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" class="bi pe-none me-2">
+  <defs>
+    <symbol id="a" viewBox="0 0 100 100">
+      <path fill="#B6D4FE" d="M0 0h58v68H0z"/>
+      <path fill="#DC3545" d="M0 70h58v30H0z"/>
+      <path fill="#198754" d="M60 0h40v30H60z"/>
+      <path fill="#FFECB5" d="M60 32h40v68H60z"/>
+      <text x="10" y="60" fill="#084298" font-family="Arial" font-size="32">1</text>
+      <text x="35" y="60" fill="#084298" font-family="Arial" font-size="32">1</text>
+      <text x="66" y="60" fill="#664D03" font-family="Arial" font-size="32">2</text>
+    </symbol>
+  </defs>
+  <use xlink:href="#a"/>
+</svg>
