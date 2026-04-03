@@ -528,7 +528,7 @@ Louis Davis and Jay Gupta
 <div id="44f9a81c" class="cell" data-scrolled="true">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>joint <span class="op">=</span> df[[<span class="st">'fatality'</span>, <span class="st">'age'</span>]].value_counts().unstack()</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>joint <span class="op">=</span> pd.crosstab(df[<span class="st">"age"</span>], df[<span class="st">"fatality"</span>])</span>
 <span id="cb1-2"><a href=""></a>marginal <span class="op">=</span> df[<span class="st">'age'</span>].value_counts()</span>
 <span id="cb1-3"><a href=""></a>conditional <span class="op">=</span> joint.divide(marginal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
