@@ -355,8 +355,8 @@ Louis Davis and Jay Gupta
 <div id="tabset-1-1">
 <div id="def-mean" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Mean)</strong></span> The mean of data <span class="math inline">\(x_1, x_2, \dots x_n\)</span> is their sum divided by the number of observations. <span class="math display">\[
-\text{mean}(\mathbf{x}) = \overline{\mathbf{x}} = \frac{1}{n} \sum_{i = 1}^{n} x_i
-\]</span></p>
+\text{mean}(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^{n} x_i
+\]</span> Note that <span class="math inline">\(\overline{\mathbf{x}}\)</span> and <span class="math inline">\(\mu\)</span> are notations for the mean.</p>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -378,12 +378,14 @@ Louis Davis and Jay Gupta
 </div>
 </div>
 </section>
-<section id="shock" class="slide level2">
-<h2>Shock</h2>
-<iframe src="https://notarocketscientist.xyz/posts/2023-01-27-how-gauss-derived-the-normal-distribution/" style="border: 1px solid white">
-</iframe>
+<section id="shock-of-the-mean" class="slide level2">
+<h2>Shock of the Mean</h2>
+<p>The mean is obvious in hindsight but not historically.</p>
+<blockquote>
+<p>It has been customary certainly to regard as an <span style="color:#00FF7F;">axiom</span> the hypothesis that if any quantity has been determined by several direct observations, made under the same circumstances and with equal care, the <span style="color:#00FF7F;">arithmetic mean</span> of the observed values affords the most probable value, if not rigorously, yet very nearly at least, so that it is always most safe to adhere to it</p>
+</blockquote>
 <div class="footer">
-<p>Read More: <a href="https://web.stanford.edu/class/datasci112/readings/mean.pdf">The Shock of the Mean</a></p>
+<p>Read More: <a href="https://web.stanford.edu/class/datasci112/readings/mean.pdf">The Shock of the Mean</a> and <a href="https://notarocketscientist.xyz/posts/2023-01-27-how-gauss-derived-the-normal-distribution/">Gauss Normal Distribution</a></p>
 </div>
 </section>
 <section id="median" class="slide level2">
@@ -425,12 +427,13 @@ Louis Davis and Jay Gupta
 <section id="variance" class="slide level2">
 <h2>Variance</h2>
 <div id="def-var" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Var)</strong></span> The variance<sup>1</sup> of data <span class="math inline">\(x_1, x_2, \dots x_n\)</span> is a summary of spread e.g., how far the data is from its center.</p>
+<p><span class="theorem-title"><strong>Definition 3 (Var)</strong></span> The variance of data <span class="math inline">\(x_1, x_2, \dots x_n\)</span> is a summary of spread e.g., how far the data is from its center.</p>
 <p><span class="math display">\[
 \text{var}(\mathbf{x}) = \frac{1}{n - 1} \sum_{i = 1}^{n} (x_i - \overline{\mathbf{x}})^2
 \]</span></p>
+<p>We divide by <span class="math inline">\(n - 1\)</span> to <a href="https://en.wikipedia.org/wiki/Bessel%27s_correction#Proof">correct</a> for sample bias. It is called the Bessel Correction.</p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>We divide by <span class="math inline">\(n - 1\)</span> to <a href="https://en.wikipedia.org/wiki/Bessel%27s_correction#Proof">correct</a> for bias.</p></li></ol></aside></section>
+</section>
 <section id="transform" class="slide level2">
 <h2>Transform</h2>
 <div class="panel-tabset">
@@ -440,16 +443,16 @@ Louis Davis and Jay Gupta
 <div id="def-affine" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Linear)</strong></span> An affine map on data <span class="math inline">\(x_1, x_2, \dots x_n\)</span> maps each observation to a linear term with bias.</p>
 <p><span class="math display">\[
-x_i \mapsto a x_i + b
+x_i \mapsto s x_i + b
 \]</span></p>
-<p>Here, we note that <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p>
+<p>Note that <span class="math inline">\(s\)</span> and <span class="math inline">\(b\)</span> are constants for stretch and bias.</p>
 </div>
 </div>
 <div id="tabset-3-2">
 <div id="thm-std" class="t theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (Standard)</strong></span> There exists a unique affine map such that the data has unit variance and empty mean. <span class="math display">\[
     x_i \mapsto \frac{x_i - \overline{x}}{\text{std}(x)}
-\]</span></p>
+\]</span> We call the resulting data standardized.</p>
 </div>
 </div>
 <div id="tabset-3-3">
@@ -489,7 +492,6 @@ x_i \mapsto a x_i + b
 </div>
 </div>
 </section></section>
-
     </div>
   </div>
 
