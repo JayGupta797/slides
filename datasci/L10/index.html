@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="L9_files/libs/clipboard/clipboard.min.js"></script>
-<script src="L9_files/libs/quarto-html/tabby.min.js"></script>
-<script src="L9_files/libs/quarto-html/popper.min.js"></script>
-<script src="L9_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="L9_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="L9_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="L9_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="L9_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="L10_files/libs/clipboard/clipboard.min.js"></script>
+<script src="L10_files/libs/quarto-html/tabby.min.js"></script>
+<script src="L10_files/libs/quarto-html/popper.min.js"></script>
+<script src="L10_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="L10_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="L10_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="L10_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="L10_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Louis Davis and Jay Gupta">
-  <meta name="dcterms.date" content="2026-04-28">
-  <title>Model Evaluation</title>
+  <meta name="dcterms.date" content="2026-04-30">
+  <title>Model Selection</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="L9_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="L9_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="L10_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="L10_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -31,14 +31,14 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="L9_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="L10_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
-  <link href="L9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="L9_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="L9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="L9_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="L9_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="L9_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="L10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="L10_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="L10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="L10_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="L10_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="L10_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -330,7 +330,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Model Evaluation</h1>
+  <h1 class="title">Model Selection</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -340,7 +340,7 @@ Louis Davis and Jay Gupta
 </div>
 </div>
 
-  <p class="date">2026-04-28</p>
+  <p class="date">2026-04-30</p>
 </section>
 <section>
 <section id="theory" class="title-slide slide level1 center">
@@ -375,7 +375,7 @@ Louis Davis and Jay Gupta
 </div>
 <div id="tabset-1-3">
 <div id="prf-bv" class="proof">
-<p><span class="proof-title"><em>Proof 1</em>. </span>Recall the short cut formula for variance. We isolate the MSE term and recover the bias and variance. <span class="math display">\[
+<p><span class="proof-title"><em>Proof 1</em>. </span>Recall the <span class="math inline">\(\text{Var}(X) = \mathbb{E} \left [ X^2 \right ] - (\mathbb{E}[X])^2\)</span> or the short-cut variance formula. We substitue <span class="math inline">\(X\)</span> for <span class="math inline">\(y - f(X)\)</span> and isolate the MSE term to recover the bias and variance. <span class="math display">\[
 \mathbb{E} \left [ \left ( y - f(X) \right )^2 \right ] =
 \text{Var} \left [ \left ( y - f(X) \right ) \right ] +
 \mathbb{E} \left ( \left [ y - f(X) \right ] \right )^2
@@ -418,7 +418,7 @@ Y_i - \widehat{\mu}^{(-k)}(X_i)
 </div>
 <div id="tabset-2-2">
 <div id="thm-CV" class="t theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (CV)</strong></span> CV is dominated by <span class="math inline">\(\mathrm{CV}^{*}_{n,K}\)</span> which does not depend on <span class="math inline">\(A\)</span> so it asymptotically uniformative. <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 2 (CV)</strong></span> CV is dominated by <span class="math inline">\(\mathrm{CV}^{*}_{n,K}\)</span> which does not depend on <span class="math inline">\(A\)</span> so it is asymptotically uniformative. <span class="math display">\[
 \widehat{\mathrm{CV}}_{n,K}(A)
 =
 \widehat{\mathrm{CV}}^{*}_{n,K}
@@ -434,7 +434,74 @@ Y_i - \widehat{\mu}^{(-k)}(X_i)
 <div class="footer">
 <p>Read More: <a href="https://arxiv.org/abs/1909.11696">CV, Risk Estimation, and Model Selection</a></p>
 </div>
-</section></section>
+</section>
+<section id="error" class="slide level2">
+<h2>Error</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Definition</a></li><li><a href="#tabset-3-2">Model</a></li><li><a href="#tabset-3-3">Theorem</a></li><li><a href="#tabset-3-4">Proof</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div id="def-mse" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Error)</strong></span> Let <span class="math inline">\(S\)</span> and <span class="math inline">\(\tilde{S}\)</span> be train and test data.</p>
+<p><span class="math display">\[S = \{(x_1, y_1), \dots, (x_n, y_n)\}\]</span> <span class="math display">\[\tilde{S} = \{(\tilde{x}_1, \tilde{y}_1), \dots, (\tilde{x}_m, \tilde{x}_m)\}\]</span></p>
+<p>All data is drawn i.i.d. from an unknown distribution <span class="math inline">\(D\)</span>.</p>
+</div>
+</div>
+<div id="tabset-3-2">
+<div id="def-linear" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Model)</strong></span> The linear regression model fits parameter <span class="math inline">\(\omega \in \mathbb{R}^d\)</span> such that the MSE target is minimized.</p>
+<p><span class="math display">\[
+\hat{\omega}
+= \arg\min_{\omega \in \mathbb{R}^d} R_S(\omega)
+= \arg\min_{\omega \in \mathbb{R}^d} \sum_{i=1}^{n} \left(y_i - \omega^\top x_i\right)^2
+\]</span></p>
+</div>
+</div>
+<div id="tabset-3-3">
+<div id="thm-tt" class="t theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Train Test)</strong></span> In expectation the train error is less than the test error e.g., it is a lower bound.</p>
+<div class="scroll-eq">
+<p><span class="math display">\[
+\mathbb{E}_{S \sim D}
+\left[
+\frac{1}{n}\sum_{i=1}^{n}
+\left(y_i - \hat{w}^{\top}x_i\right)^2
+\right]
+\le
+\mathbb{E}_{S \sim D,\ \tilde{S} \sim D}
+\left[
+\frac{1}{m}\sum_{i=1}^{m}
+\left(\tilde{y}_i - \hat{w}^{\top}\tilde{x}_i\right)^2
+\right]
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="tabset-3-4">
+<div id="prf-tt" class="proof">
+<p><span class="proof-title"><em>Proof 2</em>. </span>The key fact is that the MSE is convex so it admits a unique minimizer and any other choice <span class="math inline">\(\omega'\)</span> is sub optimal.</p>
+<p><span class="math display">\[
+\frac{1}{n} \sum_{i=1}^{n} (\tilde{y}_i - \tilde{w}^\top \tilde{x}_i)^2
+\leq \frac{1}{n} \sum_{i=1}^{n} (\tilde{y}_i - \hat{w}^\top \tilde{x}_i)^2 \\
+\]</span></p>
+<p>Here, we take the expectation of both sides and note the train and test are drawn from <span class="math inline">\(D\)</span> and thus exchangeable.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Read More: <a href="https://uzaymacar.github.io/Why-is-Training-Error-Smaller-than-Test-Error/">Why Train Error is Smaller than Test Error</a></p>
+</div>
+</section>
+<section id="search" class="slide level2">
+<h2>Search</h2>
+<p>The model space is described by hyper parameters. Typically we <span style="color:#00FF7F;">sweep</span> over the space and <span style="color:#00FF7F;">pick</span> the optimal choice. A grid search is a proposal.</p>
+</section>
+<section class="slide level2">
+
+<p>If we have reason to put <span style="color:#00FF7F;">weight</span> on a set of values, then Randomized Search is a reliable option.</p>
+
+<img data-src="L10_files/figure-revealjs/cell-6-output-1.svg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
 <section id="code" class="title-slide slide level1 center">
 <h1>Code</h1>
@@ -444,6 +511,7 @@ Y_i - \widehat{\mu}^{(-k)}(X_i)
 <h2>Practice</h2>
 <p>We <span style="color:#00FF7F;">practice</span> with Google Colab. Visit the <a href="https://datasci112.stanford.edu">course site</a>, select the <a href="https://web.stanford.edu/class/datasci112/schedule">schedule</a> tab, and open the material.</p>
 <p><a href="https://colab.research.google.com/github/StanfordStatistics/datasci112_notebooks/blob/spring2026/sections/09_predicting_house_prices/Predicting%20House%20Prices.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="width: 250px; height: auto;"> </a></p>
+<p><a href="https://colab.research.google.com/github/StanfordStatistics/datasci112_notebooks/blob/spring2026/sections/10_evaluating_house_price_models/Evaluating%20House%20Price%20Models.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="width: 250px; height: auto;"> </a></p>
 </section></section>
 <section>
 <section id="conclusion" class="title-slide slide level1 center">
@@ -452,7 +520,7 @@ Y_i - \widehat{\mu}^{(-k)}(X_i)
 </section>
 <section id="midterm" class="slide level2">
 <h2>Midterm</h2>
-<p>Section 06 did well on the first midterm exam. The median was 25 out of 30. If you have any questions or concerns, Louis and Jay are always a resources.</p>
+<p>Section 06 did <span style="color:#00FF7F;">well</span> on the first midterm exam. The rubric and distribution was <span style="color:#00FF7F;">posted</span> on EdStem. If you have any questions or concerns, Louis and Jay are resources.</p>
 </section>
 <section id="reminder" class="slide level2">
 <h2>Reminder</h2>
@@ -472,20 +540,20 @@ Y_i - \widehat{\mu}^{(-k)}(X_i)
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="L9_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="L10_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="L9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="L9_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="L9_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="L10_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
