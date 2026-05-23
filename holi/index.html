@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Holi in Colors</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000e20;
+      color: #feffff;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #app {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    #color-field {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .color-field-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .color-field-glow {
+      filter: blur(18px);
+      -webkit-filter: blur(18px);
+      opacity: 0.55;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+
+    svg {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+    }
+
+    .dot {
+      cursor: pointer;
+      will-change: opacity, r;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 2.5rem;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    header p {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      opacity: 0.55;
+      max-width: 36rem;
+      line-height: 1.5;
+    }
+
+    #preview {
+      position: fixed;
+      right: 2rem;
+      bottom: 2rem;
+      width: min(42vw, 420px);
+      aspect-ratio: 3 / 2;
+      border-radius: 4px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(12px) scale(0.97);
+      transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      z-index: 3;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    #preview.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    #preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #preview-meta {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(transparent, rgba(0, 14, 32, 0.88));
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      opacity: 0.85;
+    }
+
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000e20;
+      z-index: 10;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      transition: opacity 0.4s ease;
+    }
+
+    #loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #loading.done {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 1.2rem 1.4rem; }
+      #preview {
+        right: 1rem;
+        bottom: 1rem;
+        width: min(72vw, 320px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">Extracting colors from your memories…</div>
+
+  <header>
+    <h1>Holi in Colors</h1>
+    <p id="subtitle">Ten colors from every photo, placed by color in a 2D space. Hover a dot to see where it came from.</p>
+  </header>
+
+  <div id="app"></div>
+
+  <div id="preview" aria-hidden="true">
+    <img alt="">
+    <div id="preview-meta"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script>
+    const THEME = {
+      bg: "#000e20",
+      text: "#feffff",
+      dotOpacity: 0.78,
+      dotOpacityDim: 0.12,
+      dotOpacityHover: 1,
+      dotRadius: 2.5,
+      dotRadiusHover: 4,
+      dotStroke: "#000e20",
+      dotStrokeWidth: 0.55,
+      dotStrokeOpacity: 0.85,
+      dotStrokeHover: "#feffff",
+      dotStrokeWidthHover: 0.75,
+      hitRadius: 9,
+      minSeparation: 5.1,
+      fieldOpacity: 0.24,
+      fieldLightness: 52,
+      transitionMs: 220,
+    };
+
+    const previewEl = document.getElementById("preview");
+    const previewImg = previewEl.querySelector("img");
+    const previewMeta = document.getElementById("preview-meta");
+    const loadingEl = document.getElementById("loading");
+    const subtitleEl = document.getElementById("subtitle");
+
+    let activePhotoId = null;
+    let preloadCache = new Map();
+
+    function preloadThumb(src) {
+      if (preloadCache.has(src)) return preloadCache.get(src);
+      const p = new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(src);
+        img.onerror = () => resolve(null);
+        img.src = src;
+      });
+      preloadCache.set(src, p);
+      return p;
+    }
+
+    function cullOverlapping(dots, minDist) {
+      const minDistSq = minDist * minDist;
+      const sorted = [...dots].sort(
+        (a, b) =>
+          (b.count ?? 0) - (a.count ?? 0) ||
+          Math.hypot(b.labA, b.labB) - Math.hypot(a.labA, a.labB)
+      );
+
+      const kept = [];
+      for (const dot of sorted) {
+        const overlaps = kept.some((other) => {
+          const dx = dot.x - other.x;
+          const dy = dot.y - other.y;
+          return dx * dx + dy * dy < minDistSq;
+        });
+        if (!overlaps) kept.push(dot);
+      }
+      return kept;
+    }
+
+    function layoutDots(data, width, height) {
+      const cx = width / 2;
+      const cy = height / 2;
+      const minDim = Math.min(width, height);
+      const maxR = minDim * 0.36;
+
+      const photoMap = new Map(data.photos.map((p) => [p.id, p]));
+
+      const positioned = data.dots.map((dot) => {
+        const lab = d3.lab(dot.hex);
+        const photo = photoMap.get(dot.photoId);
+        return {
+          photoId: dot.photoId,
+          colorIndex: dot.colorIndex,
+          hex: dot.hex,
+          labA: lab.a,
+          labB: lab.b,
+          count: dot.count ?? 0,
+          filename: photo.filename,
+          thumb: photo.thumb,
+        };
+      });
+
+      const aExtent = d3.extent(positioned, (d) => d.labA);
+      const bExtent = d3.extent(positioned, (d) => d.labB);
+      const pad = 0.08;
+      const aSpan = aExtent[1] - aExtent[0] || 1;
+      const bSpan = bExtent[1] - bExtent[0] || 1;
+
+      const aScale = d3
+        .scaleLinear()
+        .domain([aExtent[0] - aSpan * pad, aExtent[1] + aSpan * pad])
+        .range([-maxR, maxR]);
+      const bScale = d3
+        .scaleLinear()
+        .domain([bExtent[0] - bSpan * pad, bExtent[1] + bSpan * pad])
+        .range([maxR, -maxR]);
+
+      positioned.forEach((d) => {
+        d.tx = cx + aScale(d.labA);
+        d.ty = cy + bScale(d.labB);
+        d.x = d.tx;
+        d.y = d.ty;
+      });
+
+      const fitScale =
+        maxR / (d3.max(positioned, (d) => Math.hypot(d.tx - cx, d.ty - cy)) || 1);
+      positioned.forEach((d) => {
+        d.tx = cx + (d.tx - cx) * fitScale;
+        d.ty = cy + (d.ty - cy) * fitScale;
+        d.x = d.tx;
+        d.y = d.ty;
+      });
+
+      const visible = cullOverlapping(positioned, THEME.minSeparation);
+
+      return {
+        visible,
+        all: positioned,
+        cx,
+        cy,
+        maxR,
+        fitScale,
+        aScale,
+        bScale,
+      };
+    }
+
+    function labToRgb(L, a, b) {
+      const c = d3.lab(L, a, b).rgb();
+      return [
+        Math.max(0, Math.min(255, Math.round(c.r))),
+        Math.max(0, Math.min(255, Math.round(c.g))),
+        Math.max(0, Math.min(255, Math.round(c.b))),
+      ];
+    }
+
+    function drawLabField(canvas, space, width, height) {
+      const { cx, cy, maxR, fitScale, aScale, bScale } = space;
+      const scale = 0.45;
+      const w = Math.ceil(width * scale);
+      const h = Math.ceil(height * scale);
+      canvas.width = w;
+      canvas.height = h;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      const ctx = canvas.getContext("2d");
+      const scx = cx * scale;
+      const scy = cy * scale;
+      const sr = maxR * scale;
+      const srSq = sr * sr;
+
+      const img = ctx.createImageData(w, h);
+      const pixels = img.data;
+      const L = THEME.fieldLightness;
+      const baseAlpha = THEME.fieldOpacity;
+
+      for (let py = 0; py < h; py++) {
+        for (let px = 0; px < w; px++) {
+          const dx = px - scx;
+          const dy = py - scy;
+          const distSq = dx * dx + dy * dy;
+          const i = (py * w + px) * 4;
+
+          if (distSq > srSq) {
+            pixels[i + 3] = 0;
+            continue;
+          }
+
+          const [r, g, b] = labToRgb(
+            L,
+            aScale.invert(dx / scale / fitScale),
+            bScale.invert(dy / scale / fitScale)
+          );
+          const dist = Math.sqrt(distSq) / sr;
+          const edgeSoft = 1 - Math.pow(dist, 2.5) * 0.12;
+
+          pixels[i] = r;
+          pixels[i + 1] = g;
+          pixels[i + 2] = b;
+          pixels[i + 3] = Math.round(255 * baseAlpha * edgeSoft);
+        }
+      }
+
+      ctx.putImageData(img, 0, 0);
+    }
+
+    function drawGlowField(canvas, space, width, height) {
+      const { cx, cy, maxR, all } = space;
+      const scale = 0.45;
+      const w = Math.ceil(width * scale);
+      const h = Math.ceil(height * scale);
+      canvas.width = w;
+      canvas.height = h;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      const ctx = canvas.getContext("2d");
+      const scx = cx * scale;
+      const scy = cy * scale;
+      const sr = maxR * scale;
+      const maxCount = d3.max(all, (d) => d.count) || 1;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(scx, scy, sr, 0, Math.PI * 2);
+      ctx.clip();
+
+      for (const dot of all) {
+        const x = dot.x * scale;
+        const y = dot.y * scale;
+        const alpha = 0.08 + (dot.count / maxCount) * 0.22;
+        const radius = 22;
+        const color = d3.color(dot.hex);
+        if (!color) continue;
+
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        gradient.addColorStop(0, color.copy({ opacity: alpha }).formatRgb());
+        gradient.addColorStop(0.45, color.copy({ opacity: alpha * 0.55 }).formatRgb());
+        gradient.addColorStop(1, color.copy({ opacity: 0 }).formatRgb());
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    function drawColorField(container, space, width, height) {
+      const wrap = d3.select(container)
+        .append("div")
+        .attr("id", "color-field");
+
+      wrap
+        .append("canvas")
+        .attr("class", "color-field-layer color-field-base")
+        .each(function () {
+          drawLabField(this, space, width, height);
+        });
+
+      wrap
+        .append("canvas")
+        .attr("class", "color-field-layer color-field-glow")
+        .each(function () {
+          drawGlowField(this, space, width, height);
+        });
+    }
+
+    function render(data) {
+      const app = d3.select("#app");
+      app.selectAll("*").remove();
+
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const space = layoutDots(data, width, height);
+      const dots = space.visible;
+
+      subtitleEl.textContent =
+        `${dots.length} colors · ${data.photoCount} photos · hover to preview`;
+
+      data.photos.forEach((p) => preloadThumb(p.thumb));
+
+      app.append("div").each(function () {
+        drawColorField(this, space, width, height);
+      });
+
+      const svg = app
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+      const g = svg.append("g");
+
+      g.append("circle")
+        .attr("cx", space.cx)
+        .attr("cy", space.cy)
+        .attr("r", space.maxR)
+        .attr("fill", "none")
+        .attr("stroke", "#ffffff")
+        .attr("stroke-opacity", 1)
+        .attr("stroke-width", 1);
+
+      const dotGroup = g
+        .selectAll("g.dot-group")
+        .data(dots, (d) => `${d.photoId}-${d.colorIndex}`)
+        .join("g")
+        .attr("class", "dot-group")
+        .attr("transform", (d) => `translate(${d.x},${d.y})`);
+
+      const dot = dotGroup
+        .append("circle")
+        .attr("class", "dot")
+        .attr("r", THEME.dotRadius)
+        .attr("fill", (d) => d.hex)
+        .attr("fill-opacity", THEME.dotOpacity)
+        .attr("stroke", THEME.dotStroke)
+        .attr("stroke-width", THEME.dotStrokeWidth)
+        .attr("stroke-opacity", THEME.dotStrokeOpacity);
+
+      function setActive(photoId) {
+        if (activePhotoId === photoId) return;
+        activePhotoId = photoId;
+
+        dot
+          .transition()
+          .duration(THEME.transitionMs)
+          .ease(d3.easeCubicOut)
+          .attr("fill-opacity", (d) =>
+            d.photoId === photoId
+              ? THEME.dotOpacityHover
+              : photoId == null
+                ? THEME.dotOpacity
+                : THEME.dotOpacityDim
+          )
+          .attr("r", (d) =>
+            d.photoId === photoId ? THEME.dotRadiusHover : THEME.dotRadius
+          )
+          .attr("stroke", (d) =>
+            d.photoId === photoId ? THEME.dotStrokeHover : THEME.dotStroke
+          )
+          .attr("stroke-width", (d) =>
+            d.photoId === photoId ? THEME.dotStrokeWidthHover : THEME.dotStrokeWidth
+          )
+          .attr("stroke-opacity", (d) =>
+            d.photoId === photoId ? 1 : photoId == null ? THEME.dotStrokeOpacity : 0.2
+          );
+      }
+
+      function showPreview(d) {
+        setActive(d.photoId);
+        previewMeta.textContent = d.filename.replace(/\.[^.]+$/, "");
+        preloadThumb(d.thumb).then((src) => {
+          if (activePhotoId !== d.photoId) return;
+          previewImg.src = src || d.thumb;
+          previewEl.classList.add("visible");
+        });
+      }
+
+      function hidePreview() {
+        activePhotoId = null;
+        previewEl.classList.remove("visible");
+        dot
+          .transition()
+          .duration(THEME.transitionMs)
+          .ease(d3.easeCubicOut)
+          .attr("fill-opacity", THEME.dotOpacity)
+          .attr("r", THEME.dotRadius)
+          .attr("stroke", THEME.dotStroke)
+          .attr("stroke-width", THEME.dotStrokeWidth)
+          .attr("stroke-opacity", THEME.dotStrokeOpacity);
+      }
+
+      dotGroup.style("pointer-events", "none");
+
+      function hitDot(mx, my) {
+        const r = THEME.hitRadius;
+        for (const d of dots) {
+          const dx = d.x - mx;
+          const dy = d.y - my;
+          if (dx * dx + dy * dy <= r * r) return d;
+        }
+        return null;
+      }
+
+      svg
+        .on("pointermove", (event) => {
+          const [mx, my] = d3.pointer(event);
+          const hit = hitDot(mx, my);
+          if (hit) showPreview(hit);
+          else if (activePhotoId !== null) hidePreview();
+        })
+        .on("pointerleave", hidePreview);
+
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => render(data), 120);
+      });
+    }
+
+    d3.json("data/colors.json")
+      .then((data) => {
+        if (!data?.dots?.length) throw new Error("No color data found");
+        loadingEl.classList.add("hidden");
+        setTimeout(() => loadingEl.classList.add("done"), 450);
+        render(data);
+      })
+      .catch((err) => {
+        loadingEl.textContent =
+          "Run npm install && npm run extract to generate color data.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>A Field Guide to Sleep</title>
+<meta name="viewport" content="width=880" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper:        oklch(0.955 0.014 82);
+    --paper-2:      oklch(0.925 0.018 80);
+    --rule:         oklch(0.84  0.02  78);
+    --ink:          oklch(0.18  0.025 260);
+    --ink-soft:     oklch(0.40  0.025 260);
+    --ink-faint:    oklch(0.62  0.022 260);
+    --night:        oklch(0.165 0.040 262);
+    --night-2:      oklch(0.215 0.045 262);
+    --night-rule:   oklch(0.32  0.040 262);
+    --moon:         oklch(0.93  0.030 78);
+    --moon-soft:    oklch(0.86  0.040 78);
+    --amber:        oklch(0.76  0.135 68);
+    --amber-deep:   oklch(0.58  0.135 55);
+    --rust:         oklch(0.55  0.14  35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: oklch(0.78 0.012 78); }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding: 32px 0 64px;
+  }
+
+  .page {
+    width: 880px;
+    margin: 0 auto;
+    background: var(--paper);
+    background-image:
+      radial-gradient(1200px 800px at 80% -10%, oklch(0.97 0.02 80) 0%, transparent 60%),
+      radial-gradient(900px 700px at 0% 110%, oklch(0.94 0.02 75) 0%, transparent 65%);
+    box-shadow:
+      0 1px 0 oklch(0.86 0.018 80),
+      0 30px 60px -30px oklch(0.18 0.03 260 / 0.35),
+      0 80px 120px -60px oklch(0.18 0.03 260 / 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle paper grain */
+  .page::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 3px, oklch(0.20 0.025 260 / 0.012) 3px 4px),
+      repeating-linear-gradient(90deg, transparent 0 7px, oklch(0.20 0.025 260 / 0.008) 7px 8px);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  .page > * { position: relative; z-index: 2; }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    padding: 38px 56px 24px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .nameplate-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 22px;
+  }
+  .nameplate-row .tag { color: var(--ink-faint); }
+  .nameplate-row .vol { color: var(--ink); font-weight: 600; }
+  .nameplate-row .dot { color: var(--ink-faint); }
+
+  h1.title {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 92px;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin: 0 0 6px;
+    color: var(--ink);
+    font-variation-settings: 'opsz' 72;
+  }
+  h1.title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber-deep);
+  }
+  .subtitle {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink-soft);
+    margin: 14px 0 18px;
+    max-width: 640px;
+  }
+  .dek {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .dek-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-top: 4px;
+  }
+  .dek p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    columns: 2;
+    column-gap: 28px;
+    column-rule: 1px solid var(--rule);
+    text-align: justify;
+    hyphens: auto;
+  }
+  .dek p::first-letter {
+    font-family: 'Newsreader', serif;
+    font-size: 44px;
+    line-height: 0.85;
+    float: left;
+    padding: 6px 8px 0 0;
+    font-weight: 500;
+    color: var(--amber-deep);
+  }
+
+  /* ============ HERO VIZ ============ */
+  .hero {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 32px 56px 36px;
+    position: relative;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--ink);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 2px, oklch(0.2 0.03 78 / 0.012) 2px 3px);
+    mix-blend-mode: multiply;
+  }
+  .hero-head {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 36px;
+    align-items: end;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 10px;
+  }
+  .hero h2 {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 0;
+    font-variation-settings: 'opsz' 60;
+    color: var(--ink);
+  }
+  .hero h2 em { font-style: italic; color: var(--amber-deep); font-weight: 400; }
+  .hero-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .viz-wrap {
+    position: relative;
+    margin-top: 6px;
+  }
+  .viz-wrap svg { display: block; width: 100%; height: auto; }
+
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .legend .swatch {
+    display: inline-block;
+    width: 14px; height: 8px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .legend .swatch.ridge {
+    background: linear-gradient(180deg, oklch(0.58 0.135 55) 0%, oklch(0.58 0.135 55 / 0.2) 100%);
+  }
+  .legend .swatch.peak {
+    background: var(--ink);
+  }
+  .legend .swatch.ideal {
+    background: transparent;
+    border-top: 1px dashed var(--ink);
+    height: 0;
+    width: 18px;
+  }
+
+  /* ============ STAT STRIP ============ */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .stat {
+    padding: 26px 24px 22px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    font-variation-settings: 'opsz' 72;
+    display: block;
+  }
+  .stat .num .unit {
+    font-size: 26px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    font-style: italic;
+    margin-left: 2px;
+  }
+  .stat .num .qual {
+    font-size: 20px;
+    color: var(--amber-deep);
+    font-weight: 500;
+    font-style: italic;
+  }
+  .stat .label {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 26ch;
+  }
+  .stat .src {
+    margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ============ MID SECTIONS ============ */
+  .mid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    border-bottom: 1px solid var(--ink);
+  }
+  .reflect {
+    padding: 28px 28px 28px 56px;
+    border-right: 1px solid var(--ink);
+    background:
+      linear-gradient(180deg, transparent 0%, oklch(0.92 0.02 78 / 0.4) 100%);
+  }
+  .deficit {
+    padding: 28px 56px 28px 28px;
+  }
+
+  .sec-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 8px;
+  }
+  .sec-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .sec-title em { font-style: italic; color: var(--amber-deep); font-weight: 400; }
+  .sec-lede {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 44ch;
+  }
+
+  /* Reflect log */
+  .log {
+    margin: 14px 0 6px;
+    border: 1px solid var(--ink);
+    background: var(--paper-2);
+  }
+  .log-head {
+    display: grid;
+    grid-template-columns: 60px repeat(24, 1fr);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--rule);
+  }
+  .log-head span {
+    text-align: center;
+    padding: 6px 0;
+    border-right: 1px solid oklch(0.88 0.018 80);
+  }
+  .log-head span:first-child { text-align: left; padding-left: 8px; border-right: 1px solid var(--rule); }
+  .log-head span:last-child { border-right: none; }
+  .log-row {
+    display: grid;
+    grid-template-columns: 60px repeat(24, 1fr);
+    height: 18px;
+    border-bottom: 1px solid oklch(0.88 0.018 80);
+  }
+  .log-row:last-child { border-bottom: none; }
+  .log-row .day {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-left: 8px;
+    border-right: 1px solid var(--rule);
+    display: flex; align-items: center;
+  }
+  .log-row .hr {
+    border-right: 1px solid oklch(0.90 0.015 80);
+    position: relative;
+  }
+  .log-row .hr:last-child { border-right: none; }
+  .log-row .hr.night {
+    background:
+      repeating-linear-gradient(45deg, oklch(0.20 0.03 260 / 0.04) 0 3px, transparent 3px 6px);
+  }
+  .log-foot {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 6px 8px;
+    border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between;
+  }
+  .log-instr {
+    margin-top: 12px;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .log-instr .pen {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--amber);
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 6px;
+    transform: translateY(-1px);
+  }
+
+  /* Deficit */
+  .deficit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .def-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .def-row:last-child { border-bottom: none; }
+  .def-hours {
+    font-family: 'Newsreader', serif;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .def-hours em { color: var(--rust); font-style: italic; font-weight: 500; }
+  .def-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .def-text strong { font-weight: 600; }
+  .def-bar {
+    margin-top: 6px;
+    height: 6px;
+    background: oklch(0.90 0.015 78);
+    position: relative;
+    overflow: hidden;
+  }
+  .def-bar > i {
+    position: absolute;
+    top: 0; bottom: 0;
+    background: var(--ink);
+    display: block;
+  }
+  .def-bar > b {
+    position: absolute;
+    top: 0; bottom: 0;
+    background: repeating-linear-gradient(135deg, var(--rust) 0 4px, oklch(0.55 0.14 35 / 0.5) 4px 8px);
+    display: block;
+  }
+  .def-tick {
+    margin-top: 4px;
+    display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+
+  /* ============ HABITS ============ */
+  .habits {
+    padding: 28px 56px 36px;
+  }
+  .habits-head {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 28px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+  .habits-head .sec-lede { max-width: 100%; }
+  .habits-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 28px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .habit {
+    border-top: 1px solid var(--ink);
+    padding-top: 12px;
+    position: relative;
+  }
+  .habit .when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .habit .when .n {
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: 0;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .habit h3 {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .habit p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .habit p .why {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ============ FOOTER ============ */
+  .colophon {
+    padding: 22px 56px 30px;
+    border-top: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: end;
+  }
+  .colophon p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0;
+    line-height: 1.7;
+  }
+  .colophon p b { color: var(--ink); font-weight: 600; }
+  .mark {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+  .mark .moon {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: inset -3px -2px 0 var(--paper);
+    transform: translateY(1px);
+    margin-right: 6px;
+  }
+
+  /* SVG specific */
+  .ridge-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    fill: var(--ink);
+    text-transform: uppercase;
+  }
+  .ridge-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    fill: var(--ink-faint);
+    letter-spacing: 0.08em;
+  }
+  .axis-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    fill: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+  .axis-tick {
+    stroke: var(--ink-soft);
+    stroke-width: 0.5;
+  }
+  .axis-rule {
+    stroke: var(--rule);
+    stroke-width: 0.5;
+    stroke-dasharray: 2 4;
+  }
+  .ridge-stroke {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 0.8;
+  }
+  .annot {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 12.5px;
+    fill: var(--amber);
+  }
+  .annot-line {
+    stroke: var(--amber);
+    stroke-width: 0.5;
+    fill: none;
+  }
+
+  @media print {
+    @page {
+      size: 9.17in 26.3in;
+      margin: 0;
+    }
+    html, body {
+      background: white !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+    .page {
+      box-shadow: none !important;
+      width: 880px !important;
+      margin: 0 !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .hero, .stats, .mid, .habits, .colophon {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <!-- ============ MASTHEAD ============ -->
+    <header class="masthead">
+      <div class="nameplate-row">
+        <span class="vol">A Field Guide to Sleep · No. 01</span>
+        <span class="tag">
+</span>
+        <span>FOR PRINT</span>
+      </div>
+      <h1 class="title">The Long <em>Night</em>.</h1>
+      <p class="subtitle">A quiet, data-driven case for the eight hours you keep<br/>borrowing against — and a plan to pay them back.</p>
+      <div class="dek">
+        <div class="dek-label">From the<br/>editors</div>
+        <p>We treat sleep like a budget line we can overdraw indefinitely. The body keeps a stricter ledger. Below is a portrait of when, on average, the country is unconscious — drawn from time-use diaries kept by tens of thousands of Americans — paired with what we know happens when you cheat the curve, and a few small habits, anchored to the clock.</p>
+      </div>
+    </header>
+
+    <!-- ============ HERO VIZ ============ -->
+    <section class="hero">
+      <div class="hero-head">
+        <div>
+          <div class="hero-eyebrow">Fig. 01 · When the country is <em style="font-style:italic;">unconscious</em></div>
+          <h2>The night, <em>by age.</em></h2>
+        </div>
+        <p class="hero-lede">Each ridge shows the share of people asleep at every hour of the day, for one age band. The peak drifts left as we grow older. </p>
+      </div>
+
+      <div class="viz-wrap" id="viz"></div>
+
+      <div class="legend">
+        <span>ASLEEP</span>
+        <span><span class="swatch peak"></span>Peak</span>
+        <span><span class="swatch ideal"></span>Median</span>
+        <span style="margin-left:auto;">Source — American Time Use Survey, pooled 2003–2022</span>
+      </div>
+    </section>
+
+    <!-- ============ STAT STRIP ============ -->
+    <section class="stats">
+      <div class="stat">
+        <span class="num">1<span class="unit">in</span>3</span>
+        <p class="label">American adults sleep fewer than seven hours on a typical night — the threshold below which health risk begins climbing measurably.</p>
+        <div class="src">CDC · BRFSS</div>
+      </div>
+      <div class="stat">
+        <span class="num">$411<span class="unit">B</span></span>
+        <p class="label">Estimated annual cost of insufficient sleep to the U.S. economy in lost productivity, errors, and excess mortality.</p>
+        <div class="src">RAND Europe · 2016</div>
+      </div>
+      <div class="stat">
+        <span class="num">17<span class="unit">hrs</span></span>
+        <p class="label">Hours awake at which your reaction time and judgment look like <span style="color:var(--rust); font-style:italic;">.05% BAC</span> — legally impaired in most of the world.</p>
+        <div class="src">Dawson &amp; Reid · Nature 1997</div>
+      </div>
+    </section>
+
+    <!-- ============ MID: REFLECT + DEFICIT ============ -->
+    <section class="mid">
+      <div class="reflect">
+        <div class="sec-eyebrow">Exercise · 4 minutes</div>
+        <h2 class="sec-title">Plot your <em>last week.</em></h2>
+        <p class="sec-lede">Before you read on, draw your own ridge. For each night, shade the hours you were actually asleep. The shape that emerges is the one your body is currently working with.</p>
+
+        <div class="log">
+          <div class="log-head">
+            <span>Hour →</span>
+            <span>6p</span><span></span><span>8p</span><span></span><span>10p</span><span></span>
+            <span>12a</span><span></span><span>2a</span><span></span><span>4a</span><span></span>
+            <span>6a</span><span></span><span>8a</span><span></span><span>10a</span><span></span>
+            <span>12p</span><span></span><span>2p</span><span></span><span>4p</span><span></span>
+          </div>
+          <!-- 7 rows -->
+          <!-- night hours: 18..29 (6p-5a) and 30..32 (6a-8a) approx -->
+        </div>
+
+        <p class="log-instr"><span class="pen"></span> Shade with a pen. Don't round up. Don't count the time you spent on your phone, eyes open, in the dark.</p>
+      </div>
+
+      <div class="deficit">
+        <div class="sec-eyebrow">Fig. 02 · The arithmetic of a short night</div>
+        <h2 class="sec-title">What an hour <em>costs.</em></h2>
+        <p class="sec-lede">Sleep loss is not linear. The fifth hour you skip costs more than the first. Below: what one week of partial nights does to a body, by recent measure.</p>
+
+        <div class="deficit-grid">
+          <div class="def-row">
+            <div class="def-hours"><em>−1</em>hr</div>
+            <div>
+              <div class="def-text">A single short night cuts immune cell activity by <strong>~28%</strong> and triples the odds of catching a cold after exposure.</div>
+              <div class="def-bar"><i style="left:0; width:72%;"></i><b style="left:72%; width:28%;"></b></div>
+              <div class="def-tick"><span>NORMAL FUNCTION</span><span>DEFICIT</span></div>
+            </div>
+          </div>
+          <div class="def-row">
+            <div class="def-hours"><em>−2</em>hr</div>
+            <div>
+              <div class="def-text">Two weeks of six-hour nights produce cognitive impairment <strong>equivalent to two nights of no sleep at all</strong>. You do not feel it. The deficit is invisible to the person.</div>
+              <div class="def-bar"><i style="left:0; width:50%;"></i><b style="left:50%; width:50%;"></b></div>
+              <div class="def-tick"><span>PERCEIVED</span><span>ACTUAL</span></div>
+            </div>
+          </div>
+          <div class="def-row">
+            <div class="def-hours"><em>−3</em>hr</div>
+            <div>
+              <div class="def-text">Deep-sleep loss for one night drops glucose tolerance into the pre-diabetic range and reduces testosterone by roughly <strong>10–15%</strong>.</div>
+              <div class="def-bar"><i style="left:0; width:38%;"></i><b style="left:38%; width:62%;"></b></div>
+              <div class="def-tick"><span>BASELINE</span><span>METABOLIC COST</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABITS ============ -->
+    <section class="habits">
+      <div class="habits-head">
+        <div>
+          <div class="sec-eyebrow">Prescription · 24 hours</div>
+          <h2 class="sec-title">A day, <em>arranged for sleep.</em></h2>
+        </div>
+        <p class="sec-lede">Sleep is mostly built during the day. The eight habits below are ordered by clock, not importance — anchor as many as you can. The first three matter most.</p>
+      </div>
+
+      <ol class="habits-list">
+        <li class="habit">
+          <div class="when"><span>Within 30 min of waking</span><span class="n">01</span></div>
+          <h3>Walk into the light.</h3>
+          <p>10 minutes of outdoor light, even overcast, anchors the circadian clock and sets melatonin release tonight.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>+1 hr · breakfast</span><span class="n">02</span></div>
+          <h3>Eat early, eat protein.</h3>
+          <p>A daytime feeding window (roughly 7a–7p) reinforces the same clock light started. Late eating fragments deep sleep.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>Before 2 p.m.</span><span class="n">03</span></div>
+          <h3>Last coffee of the day.</h3>
+          <p>Caffeine has a 5–7 hour half-life. A 4 p.m. cup is still working at 11 p.m., even if you fall asleep — you'll get less of stage 3.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>Late afternoon</span><span class="n">04</span></div>
+          <h3>Move, but not too late.</h3>
+          <p>30 minutes of exercise deepens slow-wave sleep — given 3 hours before bed, core temperature falls.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>3 hr before bed</span><span class="n">05</span></div>
+          <h3>Close the bar.</h3>
+          <p>Alcohol sedates but it does not sleep you. It suppresses REM and fragments the second half of the night.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>1 hr before bed</span><span class="n">06</span></div>
+          <h3>Dim the room by half.</h3>
+          <p>Bright overhead light at 10 p.m. delays melatonin by ~90 minutes. Lamps and warm bulbs do not. The fix is cheap.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>Bedtime · every night</span><span class="n">07</span></div>
+          <h3>Same time, every time.</h3>
+          <p>Regularity predicts mortality better than duration. A wobble of 90 minutes nightly tracks worse than sleeping less.</p>
+        </li>
+        <li class="habit">
+          <div class="when"><span>Cannot sleep?</span><span class="n">08</span></div>
+          <h3>Leave the bed.</h3>
+          <p>If you've been awake 20 minutes, get up. Read, dimly, somewhere else. The bed should stay associated with sleep.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ COLOPHON ============ -->
+    <footer class="colophon">
+      <p>
+        <b>Sources</b> — American Time Use Survey · CDC Behavioral Risk Factor Surveillance · National Sleep Foundation Consensus 2015 · RAND Europe, <i>Why Sleep Matters</i> 2016 · Walker, <i>Why We Sleep</i> · Van Dongen et al., <i>SLEEP</i> 2003 · Prather et al., <i>SLEEP</i> 2015 · Spiegel et al.<br/>
+        <b>A flyer for —</b> anyone who has ever called sleep a waste of time.
+      </p>
+      <div class="mark"><span class="moon"></span>The Long Night · 01</div>
+    </footer>
+  </main>
+
+<script>
+/* ============================================================
+   Ridgeline: % of people asleep, by hour, across age bands.
+
+   Curves are computed — not drawn — from per-age-band bedtime
+   and waketime distributions reported from American Time Use
+   Survey sleep diaries (Basner et al., SLEEP 2007/2014; Krueger
+   & Friedman, AJE 2009; ATUS pooled 2003–2022).
+
+   Each curve is:
+     P(asleep at h) = Φ((h − μ_bed)/σ_bed) − Φ((h − μ_wake)/σ_wake)
+   where μ/σ are the published mean and SD of bedtime/waketime
+   for that band, converted to hours-since-noon.
+
+   This is the same construction Yau used to make the heatmap
+   from the ATUS public-use file — sleep is a *state*, computed
+   from start and stop events.
+   ============================================================ */
+
+(function () {
+  const W = 768, H = 470;
+  const PAD = { l: 96, r: 22, t: 40, b: 36 };
+  const innerW = W - PAD.l - PAD.r;
+  const innerH = H - PAD.t - PAD.b;
+
+  // x-axis: noon (h=0) -> next-day noon (h=24)
+  const HOURS = 24;
+  const xAt = (h) => PAD.l + (h / HOURS) * innerW;
+
+  // ---- normal CDF (Abramowitz & Stegun 7.1.26) ----
+  function erf(x) {
+    const a1 =  0.254829592, a2 = -0.284496736, a3 =  1.421413741,
+          a4 = -1.453152027, a5 =  1.061405429, p  =  0.3275911;
+    const sign = x < 0 ? -1 : 1;
+    x = Math.abs(x);
+    const t = 1.0 / (1.0 + p * x);
+    const y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t * Math.exp(-x*x);
+    return sign * y;
+  }
+  const SQ2 = Math.SQRT2;
+  function Phi(x, mu, sig) { return 0.5 * (1 + erf((x - mu) / (sig * SQ2))); }
+
+  // ---- ATUS-derived parameters, by age band ----
+  // bedMu / wakeMu in clock hours (24h). bedMu>20 means evening;
+  // wakeMu < 12 means next-morning. Converted to hours-since-noon
+  // inline (bed: bedMu-12, wake: wakeMu+12).
+  // Mean sleep is the integral of the resulting curve (in hours).
+
+  const bands = [
+    // label,      bedMu, bedSig, wakeMu, wakeSig
+    { label: 'Age 15–24', bedMu: 23.95, bedSig: 1.55, wakeMu: 7.55, wakeSig: 1.60 },
+    { label: 'Age 25–34', bedMu: 23.55, bedSig: 1.30, wakeMu: 6.80, wakeSig: 1.15 },
+    { label: 'Age 35–44', bedMu: 23.25, bedSig: 1.10, wakeMu: 6.40, wakeSig: 0.95 },
+    { label: 'Age 45–54', bedMu: 23.05, bedSig: 1.00, wakeMu: 6.25, wakeSig: 0.90 },
+    { label: 'Age 55–64', bedMu: 22.80, bedSig: 0.95, wakeMu: 6.35, wakeSig: 0.95 },
+    { label: 'Age 65–74', bedMu: 22.55, bedSig: 0.95, wakeMu: 6.55, wakeSig: 1.05 },
+    { label: 'Age 75 +',  bedMu: 22.10, bedSig: 0.95, wakeMu: 6.55, wakeSig: 1.05 },
+  ];
+
+  // build the asleep-probability curve and derived stats
+  for (const b of bands) {
+    const bedH  = b.bedMu - 12;   // hours since noon for bedtime
+    const wakeH = b.wakeMu + 12;  // hours since noon for next-morning wake
+    b.curve = (h) => {
+      const v = Phi(h, bedH, b.bedSig) - Phi(h, wakeH, b.wakeSig);
+      return v < 0 ? 0 : v;
+    };
+    // integrate curve to get mean sleep hours
+    let area = 0;
+    const dh = 0.05;
+    for (let h = 0; h <= 24; h += dh) area += b.curve(h) * dh;
+    b.meanSleep = area;
+    // peak location (deepest night) = midpoint of bed and wake
+    b.peakHr = (bedH + wakeH) / 2;
+    // recommended-window markers: 7h–9h window centered on the band's midpoint
+    b.recBed  = b.peakHr - 4.0;
+    b.recWake = b.peakHr + 4.0;
+    b.sub = b.meanSleep.toFixed(1) + ' hr';
+    b.bedClock  = fmtClock(b.bedMu);
+    b.wakeClock = fmtClock(b.wakeMu);
+    // hours-since-noon for the tick marks
+    b.bedX  = bedH;
+    b.wakeX = wakeH;
+  }
+  function fmtClock(h) {
+    // h in 24h decimal. Return e.g. "11:30p" / "6:30a"
+    const hh = Math.floor(h) % 24;
+    const mm = Math.round((h - Math.floor(h)) * 60);
+    const ap = (hh < 12 || hh === 24) ? 'a' : 'p';
+    let hr = hh % 12; if (hr === 0) hr = 12;
+    const mmStr = mm < 10 ? '0' + mm : '' + mm;
+    return hr + ':' + mmStr + ap;
+  }
+
+  const rowH = innerH / bands.length;
+  const ridgeHeight = rowH * 1.40; // ridges overlap each other
+
+  // build smooth path through samples
+  function ridgePath(curve, yBase, hMax) {
+    const steps = 96;
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const h = (i / steps) * HOURS;
+      const p = curve(h);
+      pts.push([xAt(h), yBase - p * hMax]);
+    }
+    // catmull-rom-ish smoothing
+    let d = `M ${pts[0][0].toFixed(2)} ${yBase.toFixed(2)} L ${pts[0][0].toFixed(2)} ${pts[0][1].toFixed(2)}`;
+    for (let i = 1; i < pts.length; i++) {
+      d += ` L ${pts[i][0].toFixed(2)} ${pts[i][1].toFixed(2)}`;
+    }
+    d += ` L ${pts[pts.length-1][0].toFixed(2)} ${yBase.toFixed(2)} Z`;
+    return d;
+  }
+  function ridgeStrokePath(curve, yBase, hMax) {
+    const steps = 96;
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const h = (i / steps) * HOURS;
+      pts.push([xAt(h), yBase - curve(h) * hMax]);
+    }
+    let d = `M ${pts[0][0].toFixed(2)} ${pts[0][1].toFixed(2)}`;
+    for (let i = 1; i < pts.length; i++) {
+      d += ` L ${pts[i][0].toFixed(2)} ${pts[i][1].toFixed(2)}`;
+    }
+    return d;
+  }
+
+  // ===== Build SVG =====
+  const svg = `
+  <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="When we sleep, by age — ridgeline plot">
+    <defs>
+      <linearGradient id="ridgeFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"  stop-color="oklch(0.55 0.14 35)" stop-opacity="0.85"/>
+        <stop offset="55%" stop-color="oklch(0.66 0.135 55)" stop-opacity="0.45"/>
+        <stop offset="100%" stop-color="oklch(0.76 0.10 70)" stop-opacity="0.12"/>
+      </linearGradient>
+      <linearGradient id="recFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="oklch(0.76 0.135 68)" stop-opacity="0.07"/>
+        <stop offset="100%" stop-color="oklch(0.76 0.135 68)" stop-opacity="0.0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- vertical hour rules -->
+    ${[0,3,6,9,12,15,18,21,24].map(h => {
+      const x = xAt(h);
+      const major = (h === 0 || h === 6 || h === 12 || h === 18 || h === 24);
+      return `<line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${PAD.t}" y2="${H - PAD.b}" class="axis-rule" stroke-opacity="${major ? 0.55 : 0.25}"/>`;
+    }).join('')}
+
+    <!-- midnight emphasis -->
+    <line x1="${xAt(12).toFixed(1)}" x2="${xAt(12).toFixed(1)}" y1="${PAD.t}" y2="${H - PAD.b}" stroke="oklch(0.18 0.025 260 / 0.25)" stroke-width="0.7"/>
+
+    <!-- ridges -->
+    ${bands.map((b, i) => {
+      const yBase = PAD.t + (i + 1) * rowH;
+      const fill = ridgePath(b.curve, yBase, ridgeHeight);
+      const stroke = ridgeStrokePath(b.curve, yBase, ridgeHeight);
+      const peakX = xAt(b.peakHr);
+      const peakY = yBase - b.curve(b.peakHr) * ridgeHeight;
+      return `
+        <g>
+          <!-- ridge fill + stroke -->
+          <path d="${fill}" fill="url(#ridgeFill)"/>
+          <path d="${stroke}" class="ridge-stroke"/>
+
+          <!-- peak dot -->
+          <circle cx="${peakX.toFixed(2)}" cy="${peakY.toFixed(2)}" r="2.3" fill="oklch(0.18 0.025 260)"/>
+          <line x1="${peakX.toFixed(2)}" x2="${peakX.toFixed(2)}" y1="${peakY.toFixed(2)}" y2="${yBase.toFixed(2)}" stroke="oklch(0.18 0.025 260 / 0.35)" stroke-width="0.5"/>
+
+          <!-- band labels -->
+          <text x="${PAD.l - 12}" y="${(yBase - 6).toFixed(1)}" text-anchor="end" class="ridge-label">${b.label}</text>
+          <text x="${PAD.l - 12}" y="${(yBase + 5).toFixed(1)}" text-anchor="end" class="ridge-sub">${b.sub}</text>
+        </g>
+      `;
+    }).join('')}
+
+    <!-- median bedtime polyline across age bands (Yau-style) -->
+    <path d="M ${bands.map((b, i) => `${xAt(b.bedX).toFixed(1)} ${(PAD.t + (i + 1) * rowH).toFixed(1)}`).join(' L ')}"
+          fill="none" stroke="oklch(0.18 0.025 260)" stroke-width="0.9" stroke-dasharray="3 2"/>
+    <!-- median waketime polyline across age bands -->
+    <path d="M ${bands.map((b, i) => `${xAt(b.wakeX).toFixed(1)} ${(PAD.t + (i + 1) * rowH).toFixed(1)}`).join(' L ')}"
+          fill="none" stroke="oklch(0.18 0.025 260)" stroke-width="0.9" stroke-dasharray="3 2"/>
+
+    <!-- x axis -->
+    <line x1="${PAD.l}" x2="${W - PAD.r}" y1="${H - PAD.b + 0.5}" y2="${H - PAD.b + 0.5}" stroke="oklch(0.40 0.025 260)" stroke-width="0.6"/>
+    ${[
+      [0,  '12 p'], [3,  '3 p'], [6, '6 p'], [9, '9 p'],
+      [12, '12 a'], [15, '3 a'], [18,'6 a'], [21,'9 a'], [24,'12 p']
+    ].map(([h, lbl]) => {
+      const x = xAt(h);
+      return `
+        <line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${H - PAD.b}" y2="${H - PAD.b + 4}" class="axis-tick"/>
+        <text x="${x.toFixed(1)}" y="${H - PAD.b + 16}" text-anchor="middle" class="axis-label">${lbl}</text>
+      `;
+    }).join('')}
+
+  </svg>
+  `;
+  document.getElementById('viz').innerHTML = svg;
+})();
+
+/* ============================================================
+   Plot-your-week log: build 7 rows of 24 hourly cells.
+   Hours in row start at 6pm (h=18) and run to 5:59pm next day,
+   matching the header. Cells from 18..29 and >=30 stylized as 'night'.
+   ============================================================ */
+(function () {
+  const log = document.querySelector('.log');
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const html = days.map(d => {
+    let cells = `<div class="day">${d}</div>`;
+    // header has 24 hour-cells starting at 6p, 7p, 8p, ... covering 24 hours
+    for (let i = 0; i < 24; i++) {
+      const hour = (18 + i) % 24; // 18..23, 0..17
+      // 'night' cells: 8pm..6am (hours 20..23, 0..6)
+      const isNight = (hour >= 20 || hour <= 6);
+      cells += `<div class="hr ${isNight ? 'night' : ''}"></div>`;
+    }
+    return `<div class="log-row">${cells}</div>`;
+  }).join('');
+  // also adjust log-head hour labels — re-render to match (6p start)
+  const head = log.querySelector('.log-head');
+  head.innerHTML = `<span>Hour →</span>` + Array.from({length: 24}, (_, i) => {
+    const hour = (18 + i) % 24;
+    let label = '';
+    if (hour === 18) label = '6p';
+    else if (hour === 21) label = '9p';
+    else if (hour === 0)  label = '12a';
+    else if (hour === 3)  label = '3a';
+    else if (hour === 6)  label = '6a';
+    else if (hour === 9)  label = '9a';
+    else if (hour === 12) label = '12p';
+    else if (hour === 15) label = '3p';
+    return `<span>${label}</span>`;
+  }).join('');
+  log.insertAdjacentHTML('beforeend', html);
+  // and a foot
+  log.insertAdjacentHTML('beforeend', `<div class="log-foot"><span>Evening · ← shade ahead of you · Morning →</span><span>Night marked with hatching</span></div>`);
+})();
+</script>
+<script>
+  // Auto-print after fonts + scripts settle
+  (function () {
+    function go() {
+      const ready = (document.fonts && document.fonts.ready) || Promise.resolve();
+      ready.then(() => {
+        const start = Date.now();
+        (function waitForViz() {
+          const svg = document.querySelector('#viz svg');
+          if (svg || Date.now() - start > 3000) {
+            setTimeout(() => window.print(), 500);
+          } else {
+            requestAnimationFrame(waitForViz);
+          }
+        })();
+      });
+    }
+    if (document.readyState === 'complete') go();
+    else window.addEventListener('load', go);
+  })();
+</script>
+</body>
+</html>
