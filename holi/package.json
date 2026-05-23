@@ -1,0 +1,13 @@
+{
+  "name": "holi-colors",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract-colors.js",
+    "build": "npm run extract",
+    "serve": "npx --yes serve . -p 3333"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}
