@@ -57,7 +57,6 @@ function renderBars(q, opts = {}) {
   card.appendChild(qHead(q));
   const bars = el('div', 'bars');
   const rows = sortDesc(q.rows);
-  const max = Math.max(...rows.map(r => r.pct));
   for (const r of rows) {
     const row = el('div', 'bar-row');
     row.innerHTML = `
@@ -65,7 +64,7 @@ function renderBars(q, opts = {}) {
         <span class="lbl">${r.label}</span>
         <span class="pct">${fmt(r.pct)}</span>
       </div>
-      <div class="bar-track"><div class="bar-fill" style="width:${(r.pct / max * 100).toFixed(1)}%"></div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${r.pct.toFixed(1)}%"></div></div>
     `;
     bars.appendChild(row);
   }
@@ -79,7 +78,6 @@ function renderRanked(q, opts = {}) {
   card.appendChild(qHead(q));
   const rows = sortDesc(q.rows);
   const list = el('div', 'bars compact');
-  const max = Math.max(...rows.map(r => r.pct));
   for (let i = 0; i < rows.length; i++) {
     const r = rows[i];
     const row = el('div', 'bar-row with-rank');
@@ -89,7 +87,7 @@ function renderRanked(q, opts = {}) {
         <span class="lbl">${r.label}</span>
         <span class="pct">${fmt(r.pct)}</span>
       </div>
-      <div class="bar-track"><div class="bar-fill" style="width:${(r.pct / max * 100).toFixed(1)}%"></div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${r.pct.toFixed(1)}%"></div></div>
     `;
     list.appendChild(row);
   }
@@ -284,7 +282,10 @@ function renderQuestion(q, sectionId) {
 
 // ——— Build the whole page ———
 async function build() {
-  const data = await fetch('data.json').then(r => r.json());
+  const inlineEl = document.getElementById('survey-data');
+  const data = inlineEl
+    ? JSON.parse(inlineEl.textContent)
+    : await fetch('data.json').then(r => r.json());
   const sectionsEl = document.getElementById('sections');
 
   const sectionMeta = {

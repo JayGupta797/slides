@@ -3,7 +3,6 @@
    Editorial data report. Typography is doing the heavy lifting.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   --paper:       #F4EFE6;
@@ -29,7 +28,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 body {
   font-family: var(--sans);
@@ -39,6 +38,7 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 /* —————————————— UTILITIES —————————————— */
@@ -543,6 +543,39 @@ hr.rule-thick { border: 0; border-top: 2px solid var(--ink); margin: 0; }
   .findings-grid { grid-template-columns: repeat(2, 1fr); }
   .q-card { grid-template-columns: 1fr; gap: 20px; }
   .section-opener { grid-template-columns: 1fr; gap: 24px; }
+  .section-opener .left .num { font-size: 100px; }
+  .section-opener .right .blurb { font-size: 17px; }
   .pullquote { grid-template-columns: 1fr; padding: 36px 24px; }
+  .pullquote .num { font-size: 100px; }
   .colophon .wrap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .wrap { padding: 0 16px; }
+
+  .topbar .wrap { flex-wrap: wrap; gap: 4px; white-space: normal; }
+  .topbar .left, .topbar .right { white-space: normal; }
+
+  .masthead { padding: 36px 0 24px; }
+  .masthead .lede { font-size: 18px; margin-top: 20px; }
+
+  .findings { padding: 36px 0 44px; }
+  .findings-grid { grid-template-columns: 1fr; gap: 0; }
+  .finding { padding-top: 14px; }
+
+  .section { padding: 44px 0 20px; }
+  .section-opener .left .num { font-size: 72px; }
+  .section-opener .right .blurb { font-size: 16px; }
+
+  .bignum .v { font-size: 60px; }
+
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid .item:nth-child(2n+1) { padding-left: 0; border-left: 0; }
+  .stat-grid .item:nth-child(2n) { padding-left: 12px; border-left: 1px solid var(--rule); }
+
+  .pullquote { padding: 24px 16px; }
+  .pullquote .num { font-size: 72px; }
+  .pullquote .copy { font-size: 18px; }
+
+  .colophon { padding: 40px 0 56px; margin-top: 56px; }
 }
