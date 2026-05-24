@@ -292,7 +292,7 @@ async function build() {
     demographics: {
       num: '01',
       headline: 'Who they <em>are</em>.',
-      blurb: 'A snapshot of the class — where they come from, who they identify as, and what they bring with them to The Farm.',
+      blurb: 'A snapshot of the class. We ask where they come from, who they identify as, and what they bring with them to The Farm.',
     },
     academics: {
       num: '02',
@@ -302,12 +302,12 @@ async function build() {
     lifestyle: {
       num: '03',
       headline: 'How they <em>live</em>.',
-      blurb: 'Career interests, sleep, study habits, and a more candid look at relationships, substances, and the social scene.',
+      blurb: 'Career interests, sleep, study habits, and a candid look at relationships, substances, and the social scene.',
     },
     values: {
       num: '04',
       headline: 'What they <em>believe</em>.',
-      blurb: 'Politics, religion, family ambitions, and the quiet pressures of peer influence — the soft data.',
+      blurb: 'Politics, religion, family ambitions, and the quiet pressures of peer influence.',
     },
   };
 
